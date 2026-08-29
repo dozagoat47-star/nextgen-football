@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NextGen Football - Genç Yeteneklerin Gelişim Platformu</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ============================================
+         NAVBAR
+         ============================================ -->
+    <nav class="navbar" id="navbar">
+                <div class="navbar-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">⚽</div>
+                <span>NextGen Football</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="#highlights">Highlights</a></li>
+                <li><a href="#training">Training</a></li>
+                <li><a href="#analysis">Analysis</a></li>
+            </ul>
+
+            <div class="auth-nav" id="authNav">
+                <button class="btn btn-primary btn-auth" id="authBtn">Giriş Yap</button>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         AUTH MODAL (Kayıt / Giriş)
+         ============================================ -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal auth-modal">
+            <button class="modal-close" id="authModalClose" aria-label="Kapat">✕</button>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-auth="login">Giriş Yap</button>
+                <button class="auth-tab" data-auth="register">Kayıt Ol</button>
+            </div>
+            
+            <!-- Giriş Formu -->
+            <div class="auth-form active" id="loginForm">
+                <h3>Tekrar Hoş Geldin</h3>
+                <p class="auth-desc">Hesabına giriş yap, antrenmanlarını takip et.</p>
+                <input type="email" class="auth-input" id="loginEmail" placeholder="E-posta adresin" required>
+                <input type="password" class="auth-input" id="loginPassword" placeholder="Şifren" required>
+                <button class="btn btn-primary btn-full" id="loginSubmit">Giriş Yap →</button>
+                <p class="auth-error" id="loginError"></p>
+            </div>
+            
+            <!-- Kayıt Formu -->
+            <div class="auth-form" id="registerForm">
+                <h3>NextGen'e Katıl</h3>
+                <p class="auth-desc">Ücretsiz hesap oluştur, gelişimini kaydet.</p>
+                <input type="text" class="auth-input" id="regUsername" placeholder="Kullanıcı adın" required>
+                <input type="email" class="auth-input" id="regEmail" placeholder="E-posta adresin" required>
+                <input type="password" class="auth-input" id="regPassword" placeholder="Şifren (min 6 karakter)" required>
+                <select class="auth-input" id="regPosition">
+                    <option value="">Pozisyonun (isteğe bağlı)</option>
+                    <option value="kaleci">Kaleci</option>
+                    <option value="stoper">Stoper</option>
+                    <option value="bek">Bek</option>
+                    <option value="ortasaha">Orta Saha</option>
+                    <option value="kanat">Kanat</option>
+                    <option value="santrafor">Santrafor</option>
+                </select>
+                <button class="btn btn-primary btn-full" id="registerSubmit">Hesap Oluştur →</button>
+                <p class="auth-error" id="registerError"></p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">🎯 Genç Yetenekler İçin</span>
+                <h1>Gelişimini <span class="gradient-text">Kaydet</span>,<br>Geleceğini <span class="gradient-text">İnşa Et</span></h1>
+                <p class="hero-desc">
+                    NextGen Football, genç futbolcu adaylarının kendi gelişim yolculuklarını 
+                    takip etmeleri için tasarlanmış pratik bir platformdur. 
+                    Maç istatistiklerinden antrenman planlarına, tüm veriler tek yerde.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-secondary">Daha Fazla Bilgi</a>
+                    <button class="btn btn-primary" id="startBtn">🚀 Başla</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper">
+                    <img src="football-player.jpg" alt="Genç futbolcu" class="player-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="player-img-fallback" style="display:none;">
+                        <span>👤</span>
+                        <p>football-player.jpg<br>buraya ekle</p>
+                    </div>
+                    <div class="hero-stats-float">
+                        <div class="float-stat">
+                            <span class="float-stat-num">12</span>
+                            <span class="float-stat-label">Gol</span>
+                        </div>
+                        <div class="float-stat">
+                            <span class="float-stat-num">7</span>
+                            <span class="float-stat-label">Asist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Aşağı kaydır</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT / NEDİR SECTION
+         ============================================ -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Nedir?</span>
+                <h2>NextGen Football <span class="accent">Nasıl Çalışır?</span></h2>
+                <p class="section-desc">
+                    Amacımız, genç futbolcuların ve ailelerinin gelişim sürecini 
+                    daha şeffaf ve organize hale getirmek. Abartılı vaatler değil, 
+                    somut araçlar sunuyoruz.
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">📹</div>
+                    <h3>Maç Kayıtları</h3>
+                    <p>
+                        Önemli anlarını videoya kaydet, kendi maç özetlerini oluştur. 
+                        Teknik ekibinle ve ailelerinle paylaş. Profesyonel olmak zorunda değil, 
+                        telefon kamerası yeterli.
+                    </p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">📊</div>
+                    <h3>İstatistik Takibi</h3>
+                    <p>
+                        Her maçtaki gol, asist, pas isabeti gibi temel verileri kaydet. 
+                        Zaman içindeki gelişimini grafiklerle gör. Rakamlar yanıltıcı olabilir, 
+                        ama trendleri görmek faydalıdır.
+                    </p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🏋️</div>
+                    <h3>Antrenman Planı</h3>
+                    <p>
+                        Teknik direktörün veya antrenörünle birlikte haftalık program oluştur. 
+                        Bireysel çalışmalarını takip et. Disiplin, yeteneğin yanında en önemli şey.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FEATURES SECTION
+         ============================================ -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Özellikler</span>
+                <h2>Platformda <span class="accent">Neler Var?</span></h2>
+            </div>
+
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-num">01</div>
+                    <div class="feature-content">
+                        <h3>Player Bio</h3>
+                        <p>
+                            Kendi profil sayfanı oluştur. Fiziksel özelliklerin, oynadığın pozisyon, 
+                            mevcut takımın ve kısa bir biyografin. Bir nevi dijital futbol CV'n.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-num">02</div>
+                    <div class="feature-content">
+                        <h3>Highlights</h3>
+                        <p>
+                            En iyi anlarını bir araya getir. Gollerin, asistlerin, önemli müdahalelerin. 
+                            Teknik ekibe veya scout'lara göstermek için hazır bir video arşivi.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-num">03</div>
+                    <div class="feature-content">
+                        <h3>Training Plan</h3>
+                        <p>
+                            Haftalık antrenman programını gör. Teknik, fiziksel ve taktik çalışmaların 
+                            dengesini takip et. Eksik kaldığın alanları fark et.
+                        </p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-num">04</div>
+                    <div class="feature-content">
+                        <h3>Player Analytics</h3>
+                        <p>
+                            Sezonluk performans verilerini analiz et. Hangi ay daha formsundun? 
+                            Hangi pozisyonda daha verimlisin? Veriye dayalı basit çıkarımlar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         VISION SECTION
+         ============================================ -->
+    <section class="vision" id="vision">
+        <div class="container">
+            <div class="vision-grid">
+                <div class="vision-text">
+                    <span class="section-tag">Vizyonumuz</span>
+                    <h2>Gerçekçi Hedefler,<br><span class="accent">Sürdürülebilir Gelişim</span></h2>
+                    <p>
+                        Her genç futbolcu profesyonel olmayacak. Bu gerçeği biliyoruz. 
+                        Ama her genç futbolcu, potansiyelinin farkında olarak daha bilinçli 
+                        bir sporcu olabilir. İşte bizim hedefimiz bu.
+                    </p>
+                    <p>
+                        NextGen Football, "seni Barcelona'ya götüreceğiz" demiyor. 
+                        Bunun yerine, "bugünkü antrenmanını dünkünden daha verimli yapmanı sağlayalım" diyor. 
+                        Küçük adımlar, büyük farklar.
+                    </p>
+                    <ul class="vision-list">
+                        <li>✅ Şeffaf ve ölçülebilir gelişim takibi</li>
+                        <li>✅ Teknik ekip ve aile arasında iletişim köprüsü</li>
+                        <li>✅ Abartısız, veriye dayalı geri bildirim</li>
+                        <li>✅ Her seviyeden oyuncuya uygun araçlar</li>
+                    </ul>
+                </div>
+                <div class="vision-visual">
+                    <div class="vision-card">
+                        <div class="vision-card-header">
+                            <span>📈 Sezon Performansı</span>
+                        </div>
+                        <div class="vision-chart">
+                            <div class="chart-bar" style="--h: 40%;"><span>Eyl</span></div>
+                            <div class="chart-bar" style="--h: 55%;"><span>Eki</span></div>
+                            <div class="chart-bar" style="--h: 45%;"><span>Kas</span></div>
+                            <div class="chart-bar" style="--h: 70%;"><span>Ara</span></div>
+                            <div class="chart-bar" style="--h: 60%;"><span>Oca</span></div>
+                            <div class="chart-bar" style="--h: 85%;"><span>Şub</span></div>
+                        </div>
+                        <p class="vision-chart-note">Form grafiği örneği</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CTA SECTION
+         ============================================ -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Gelişim Yolculuğun <span class="accent">Burada Başlıyor</span></h2>
+                <p>
+                    Henüz çok erken aşamadayız. Platformu birlikte şekillendirelim. 
+                    Fikirlerin, geri bildirimlerin bizim için değerli.
+                </p>
+                <button class="btn btn-primary btn-large" id="startBtnCta">Şimdi Katıl</button>
+                <p class="cta-note">* Ücretsiz ve her zaman öyle kalacak.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         POZİSYON SEÇME MODAL
+         ============================================ -->
+    <div class="modal-overlay" id="positionModal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose" aria-label="Kapat">✕</button>
+            
+            <div class="modal-header">
+                <h2>Pozisyonunu Seç</h2>
+                <p>Kendi profilini oluşturmaya başla. İsim ve diğer bilgileri sonra doldurabilirsin.</p>
+            </div>
+
+                        <div class="position-grid">
+                <div class="position-card" data-position="kaleci">
+                    <div class="position-icon">🧤</div>
+                    <h3>Kaleci</h3>
+                    <p>Kaleyi koru, reflekslerini geliştir, oyun kurulumuna katıl.</p>
+                </div>
+                <div class="position-card" data-position="stoper">
+                    <div class="position-icon">🛡️</div>
+                    <h3>Stoper</h3>
+                    <p>Savunmanın göbeğinde oyna. Hava topu, markaj ve pozisyon bilgisi.</p>
+                </div>
+                <div class="position-card" data-position="bek">
+                    <div class="position-icon">🔄</div>
+                    <h3>Bek</h3>
+                    <p>Kanattan oyna. Hem savunma yap hem hücuma katıl. Çift yönlü oyun.</p>
+                </div>
+                <div class="position-card" data-position="ortasaha">
+                    <div class="position-icon">⚡</div>
+                    <h3>Orta Saha</h3>
+                    <p>Oyun kurucu, box-to-box veya ön libero. Tempoyu sen belirle.</p>
+                </div>
+                <div class="position-card" data-position="kanat">
+                    <div class="position-icon">🏃</div>
+                    <h3>Kanat</h3>
+                    <p>Geniş alanlarda oyna. Hızın, driplingin ve ortalarınla fark yarat.</p>
+                </div>
+                <div class="position-card" data-position="santrafor">
+                    <div class="position-icon">🎯</div>
+                    <h3>Santrafor</h3>
+                    <p>Penaltı bölgesinde bitiriciliğini konuştur. Gol kokusu ve hareketlilik.</p>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <p class="modal-hint">Bir pozisyon seç ve devam et. İstediğin zaman değiştirebilirsin.</p>
+                <button class="btn btn-primary" id="continueBtn" disabled>Devam Et</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">⚽</div>
+                        <span>NextGen Football</span>
+                    </a>
+                    <p>Genç yeteneklerin gelişimini destekleyen pratik araçlar.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="#about">Nedir?</a></li>
+                        <li><a href="#features">Özellikler</a></li>
+                        <li><a href="#vision">Vizyon</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>İletişim</h4>
+                    <ul>
+                        <li><a href="#">info@nextgenfootball.com</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 NextGen Football. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
