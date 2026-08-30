@@ -3,10 +3,10 @@
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    
+
     // ---------- NAVBAR SCROLL EFEKTİ ----------
     const navbar = document.getElementById('navbar');
-    
+
     if (navbar) {
         window.addEventListener('scroll', function() {
             if (window.scrollY > 50) {
@@ -16,15 +16,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     // ---------- MOBİL MENÜ ----------
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinks');
-    
+
     if (mobileMenuBtn && navLinks) {
         mobileMenuBtn.addEventListener('click', function() {
             navLinks.classList.toggle('active');
-            
+
             const spans = mobileMenuBtn.querySelectorAll('span');
             if (navLinks.classList.contains('active')) {
                 spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 spans[2].style.transform = 'none';
             }
         });
-        
+
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function() {
                 navLinks.classList.remove('active');
@@ -47,12 +47,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
+
     // ---------- SCROLL REVEAL ----------
     const revealElements = document.querySelectorAll(
         '.about-card, .feature-item, .vision-card, .section-header'
     );
-    
+
     if (revealElements.length > 0) {
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         });
-        
+
         revealElements.forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             revealObserver.observe(el);
         });
     }
-    
+
     // ---------- SMOOTH SCROLL ----------
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -89,10 +89,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
+
     // ---------- HERO STATS SAYAÇ ----------
     const floatStats = document.querySelectorAll('.float-stat-num');
-    
+
     floatStats.forEach(stat => {
         const target = parseInt(stat.textContent);
         let current = 0;
@@ -107,10 +107,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 50);
     });
-    
+
     // ---------- VISION CHART BAR ANIMasyonu ----------
     const chartBars = document.querySelectorAll('.chart-bar');
-    
+
     if (chartBars.length > 0) {
         const chartObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -127,52 +127,52 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }, { threshold: 0.3 });
-        
+
         const visionChart = document.querySelector('.vision-chart');
         if (visionChart) {
             chartObserver.observe(visionChart);
         }
     }
-    
+
     // ============================================
     // POZİSYON SEÇME MODAL (index.html)
     // ============================================
-    
+
     const positionModal = document.getElementById('positionModal');
     const modalClose = document.getElementById('modalClose');
     const startBtn = document.getElementById('startBtn');
     const startBtnCta = document.getElementById('startBtnCta');
     const positionCards = document.querySelectorAll('.position-card');
     const continueBtn = document.getElementById('continueBtn');
-    
+
     let selectedPosition = null;
-    
+
     function openModal() {
         if (positionModal) {
             positionModal.classList.add('active');
             document.body.classList.add('modal-open');
         }
     }
-    
+
     function closeModal() {
         if (positionModal) {
             positionModal.classList.remove('active');
             document.body.classList.remove('modal-open');
         }
     }
-    
+
     if (startBtn) {
         startBtn.addEventListener('click', openModal);
     }
-    
+
     if (startBtnCta) {
         startBtnCta.addEventListener('click', openModal);
     }
-    
+
     if (modalClose) {
         modalClose.addEventListener('click', closeModal);
     }
-    
+
     if (positionModal) {
         positionModal.addEventListener('click', function(e) {
             if (e.target === positionModal) {
@@ -180,26 +180,26 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && positionModal && positionModal.classList.contains('active')) {
             closeModal();
         }
     });
-    
+
     positionCards.forEach(card => {
         card.addEventListener('click', function() {
             positionCards.forEach(c => c.classList.remove('selected'));
             this.classList.add('selected');
             selectedPosition = this.getAttribute('data-position');
-            
+
             if (continueBtn) {
                 continueBtn.disabled = false;
                 continueBtn.textContent = 'Devam Et →';
             }
         });
     });
-    
+
     if (continueBtn) {
         continueBtn.addEventListener('click', function() {
             if (selectedPosition) {
@@ -211,9 +211,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     'kanat': 'winger.html',
                     'santrafor': 'forward.html'
                 };
-                
+
                 const targetPage = positionPages[selectedPosition];
-                
+
                 if (targetPage && selectedPosition === 'kaleci') {
                     window.location.href = targetPage;
                 } else if (targetPage) {
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
+
     // ============================================
 // AI WIZARD - KALECİ ANTRENMAN PROGRAMI (GERÇEK API)
 // ============================================
@@ -267,7 +267,7 @@ function showStep(stepNum) {
     steps.forEach(step => step.classList.remove('active'));
     if (aiThinking) aiThinking.classList.remove('active');
     if (resultStep) resultStep.classList.remove('active');
-    
+
     if (stepNum <= 5) {
         const target = aiWizard.querySelector(`.wizard-step[data-step="${stepNum}"]`);
         if (target) target.classList.add('active');
@@ -281,10 +281,10 @@ function showThinking() {
     if (resultStep) resultStep.classList.remove('active');
     if (aiThinking) aiThinking.classList.add('active');
     if (progressBar) progressBar.style.width = '100%';
-    
+
     let msgIndex = 0;
     if (aiStatus) aiStatus.textContent = statusMessages[0];
-    
+
     const statusInterval = setInterval(() => {
         msgIndex++;
         if (msgIndex < statusMessages.length) {
@@ -325,13 +325,13 @@ aiWizard.querySelectorAll('.option-btn').forEach(btn => {
     btn.addEventListener('click', function() {
         const parentStep = this.closest('.wizard-step');
         const stepNum = parentStep.getAttribute('data-step');
-        
+
         if (stepNum === '1' || stepNum === '4') {
             this.classList.toggle('selected');
-            
+
             if (!answers[stepNum]) answers[stepNum] = [];
             const value = this.getAttribute('data-value');
-            
+
             if (this.classList.contains('selected')) {
                 if (!answers[stepNum].includes(value)) {
                     answers[stepNum].push(value);
@@ -339,7 +339,7 @@ aiWizard.querySelectorAll('.option-btn').forEach(btn => {
             } else {
                 answers[stepNum] = answers[stepNum].filter(v => v !== value);
             }
-            
+
             const nextBtnId = 'step' + stepNum + 'Next';
             const nextBtn = document.getElementById(nextBtnId);
             if (nextBtn) {
@@ -349,7 +349,7 @@ aiWizard.querySelectorAll('.option-btn').forEach(btn => {
             parentStep.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
             this.classList.add('selected');
             answers[stepNum] = this.getAttribute('data-value');
-            
+
             const nextBtnId = 'step' + stepNum + 'Next';
             const nextBtn = document.getElementById(nextBtnId);
             if (nextBtn) {
@@ -399,7 +399,7 @@ if (restartBtn) {
         Object.keys(answers).forEach(key => delete answers[key]);
         aiWizard.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
         showStep(1);
-        
+
         // Tüm Devam Et butonlarını devre dışı bırak
         for (let i = 1; i <= 5; i++) {
             const btn = document.getElementById('step' + i + 'Next');
@@ -407,13 +407,13 @@ if (restartBtn) {
         }
     });
 }
-    
+
     // ============================================
     // KALECİ SAYFASI - SUBNAV SMOOTH SCROLL
     // ============================================
-    
+
     const subnavLinks = document.querySelectorAll('.subnav-link');
-    
+
     subnavLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -427,38 +427,38 @@ if (restartBtn) {
             }
         });
     });
-    
+
     // Video kartları z-index
     const videoCards = document.querySelectorAll('.video-card');
-    
+
     videoCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.zIndex = '10';
         });
-        
+
         card.addEventListener('mouseleave', function() {
             this.style.zIndex = '1';
         });
     });
-    
+
     // ============================================
     // HIGHLIGHTS TAB DEĞİŞTİRME
     // ============================================
-    
+
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
-    
+
     tabBtns.forEach(btn => {
         btn.addEventListener('click', function() {
             const targetTab = this.getAttribute('data-tab');
-            
+
             // Tüm tab butonlarından active kaldır
             tabBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
-            
+
             // Tüm içerikleri gizle
             tabContents.forEach(content => content.classList.remove('active'));
-            
+
             // Hedef içeriği göster
             const targetContent = document.getElementById('tab-' + targetTab);
             if (targetContent) {
@@ -470,41 +470,41 @@ if (restartBtn) {
        // ============================================
     // INTERACTIVE SCENARIO CARDS
     // ============================================
-    
+
     const scenarioCards = document.querySelectorAll('.scenario-card');
-    
+
     scenarioCards.forEach(card => {
         const buttons = card.querySelectorAll('.scenario-btn');
         const resultBox = card.querySelector('.scenario-result');
         const resultCorrect = card.querySelector('.result-correct');
         const resultWrong = card.querySelector('.result-wrong');
-        
+
         buttons.forEach(btn => {
             btn.addEventListener('click', function() {
                 const answerType = this.getAttribute('data-answer');
                 const isGood = answerType === 'good';
-                
+
                 // Tüm butonları devre dışı bırak
                 buttons.forEach(b => {
                     b.classList.add('disabled');
                     const btnType = b.getAttribute('data-answer');
-                    
+
                     // Good cevapların hepsi yeşil
                     if (btnType === 'good') {
                         b.classList.add('correct-selected');
                     }
-                    
+
                     // Seçilen risky ise sarı
                     if (b === this && btnType === 'risky') {
                         b.classList.add('risky-selected');
                     }
                 });
-                
+
                 // Sonucu göster
                 if (resultBox) {
                     resultBox.classList.add('show');
                 }
-                
+
                 if (isGood) {
                     if (resultCorrect) resultCorrect.classList.add('show');
                     if (resultWrong) resultWrong.classList.remove('show');
@@ -554,17 +554,17 @@ const analyzeMessages = [
 
 function openAnalyzeModal(keeperName) {
     if (!analyzeModal) return;
-    
+
     analyzeModal.classList.add('active');
     document.body.classList.add('modal-open');
-    
+
     if (analyzeThinking) analyzeThinking.style.display = 'block';
     if (analyzeResult) analyzeResult.style.display = 'none';
     if (analyzeProgressBar) analyzeProgressBar.style.width = '0%';
-    
+
     let step = 0;
     if (analyzeStatus) analyzeStatus.textContent = analyzeMessages[0];
-    
+
     const interval = setInterval(() => {
         step++;
         if (step < analyzeMessages.length) {
@@ -574,7 +574,7 @@ function openAnalyzeModal(keeperName) {
             clearInterval(interval);
         }
     }, 1500);
-    
+
     // Gerçek API çağrısı
     fetch(`${API_BASE_URL}/api/analyze`, {
         method: 'POST',
@@ -641,7 +641,7 @@ document.addEventListener('keydown', function(e) {
     // ============================================
     // AUTH / KAYIT GİRİŞ
     // ============================================
-    
+
     const authModal = document.getElementById('authModal');
     const authBtn = document.getElementById('authBtn');
     const authModalClose = document.getElementById('authModalClose');
@@ -651,14 +651,14 @@ document.addEventListener('keydown', function(e) {
     const registerSubmit = document.getElementById('registerSubmit');
     const loginError = document.getElementById('loginError');
     const registerError = document.getElementById('registerError');
-    
+
     // Token kontrolü
     const token = localStorage.getItem('nextgen_token');
     const savedUser = localStorage.getItem('nextgen_user');
-    
+
     if (token && savedUser && authBtn) {
         authBtn.outerHTML = `<div class="user-menu"><span>👤 ${savedUser}</span><button class="logout-btn" id="logoutBtn">Çıkış</button></div>`;
-        
+
         const logoutBtn = document.getElementById('logoutBtn');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', function() {
@@ -668,7 +668,7 @@ document.addEventListener('keydown', function(e) {
             });
         }
     }
-    
+
     // Modal aç/kapa
     if (authBtn) {
         authBtn.addEventListener('click', function() {
@@ -676,14 +676,14 @@ document.addEventListener('keydown', function(e) {
             document.body.classList.add('modal-open');
         });
     }
-    
+
     if (authModalClose) {
         authModalClose.addEventListener('click', function() {
             if (authModal) authModal.classList.remove('active');
             document.body.classList.remove('modal-open');
         });
     }
-    
+
     if (authModal) {
         authModal.addEventListener('click', function(e) {
             if (e.target === authModal) {
@@ -692,33 +692,33 @@ document.addEventListener('keydown', function(e) {
             }
         });
     }
-    
+
     // Tab değiştirme
     authTabs.forEach(tab => {
         tab.addEventListener('click', function() {
             authTabs.forEach(t => t.classList.remove('active'));
             authForms.forEach(f => f.classList.remove('active'));
             this.classList.add('active');
-            
+
             const target = this.getAttribute('data-auth');
             if (target === 'login') document.getElementById('loginForm').classList.add('active');
             if (target === 'register') document.getElementById('registerForm').classList.add('active');
         });
     });
-    
+
     // Giriş yap
     if (loginSubmit) {
         loginSubmit.addEventListener('click', function() {
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
-            
+
             if (!email || !password) {
                 loginError.textContent = 'Lütfen tüm alanları doldurun.';
                 return;
             }
-            
+
             loginError.textContent = 'Giriş yapılıyor...';
-            
+
             fetch(`${API_BASE_URL}/api/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -739,7 +739,7 @@ document.addEventListener('keydown', function(e) {
             });
         });
     }
-    
+
     // Kayıt ol
     if (registerSubmit) {
         registerSubmit.addEventListener('click', function() {
@@ -747,19 +747,19 @@ document.addEventListener('keydown', function(e) {
             const email = document.getElementById('regEmail').value;
             const password = document.getElementById('regPassword').value;
             const position = document.getElementById('regPosition').value;
-            
+
             if (!username || !email || !password) {
                 registerError.textContent = 'Lütfen zorunlu alanları doldurun.';
                 return;
             }
-            
+
             if (password.length < 6) {
                 registerError.textContent = 'Şifre en az 6 karakter olmalı.';
                 return;
             }
-            
+
             registerError.textContent = 'Hesap oluşturuluyor...';
-            
+
             fetch(`${API_BASE_URL}/api/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -781,5 +781,24 @@ document.addEventListener('keydown', function(e) {
         });
     }
 
+
+
+    // ---------- YUMUŞAK KAYDIRMA VE MENÜ KAPANMA ----------
+    const allNavLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    allNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#') {
+                const targetElem = document.querySelector(targetId);
+                if (targetElem) {
+                    e.preventDefault();
+                    targetElem.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
 
 });
