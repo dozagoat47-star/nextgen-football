@@ -19,29 +19,324 @@
                 <span>NextGen Football</span>
             </a>
 
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-right-actions">
+                <button class="hamburger-drawer-btn" id="drawerOpenBtn">
+                    <span class="hamburger-icon">☰</span>
+                    <span class="drawer-btn-label">Rehber & Hikayeler</span>
+                </button>
 
-                        <div class="auth-nav" id="authNav">
-                <button class="btn btn-primary btn-auth" id="authBtn">Giriş Yap</button>
+                <div class="auth-nav" id="authNav">
+                    <button class="btn btn-primary btn-auth" id="authBtn">Giriş Yap</button>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menü">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
 
-                        <ul class="nav-links" id="navLinks">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="#stories">Oyuncu Hikayeleri</a></li>
-                <li><a href="#nutrition">Beslenme & Uyku</a></li>
-                <li><a href="#scout">Scout Kriterleri</a></li>
-                <li><a href="#roadmap">A Takıma Çıkış</a></li>
+                <li><a href="#highlights">Highlights</a></li>
                 <li><a href="#training">AI Antrenman</a></li>
-                <li><a href="#analysis">Kaleci Analizi</a></li>
+                <li><a href="#" class="drawer-nav-link" data-tab="stories">📖 Hikayeler</a></li>
+                <li><a href="#" class="drawer-nav-link" data-tab="nutrition">🥗 Beslenme & Uyku</a></li>
+                <li><a href="#" class="drawer-nav-link" data-tab="scout">🔍 Scout Kriterleri</a></li>
+                <li><a href="#" class="drawer-nav-link" data-tab="roadmap">🚀 Yol Haritası</a></li>
             </ul>
         </div>
     </nav>
 
-        <!-- ============================================
+    <!-- ============================================
+         HAMBURGER DRAWER MENU (Rehberler ve Eklemeler)
+         ============================================ -->
+    <div class="drawer-overlay" id="drawerOverlay">
+        <aside class="drawer" id="gkDrawer">
+            <div class="drawer-header">
+                <div class="drawer-title">
+                    <span class="drawer-title-icon">🧤</span>
+                    <div>
+                        <h3>Kaleci Özel Menüsü</h3>
+                        <p>Hikayeler, Beslenme, Scout ve Yol Haritası</p>
+                    </div>
+                </div>
+                <button class="drawer-close" id="drawerCloseBtn" aria-label="Kapat">✕</button>
+            </div>
+
+            <div class="drawer-tabs">
+                <button class="drawer-tab active" data-drawer-target="drawer-stories">📖 Hikayeler</button>
+                <button class="drawer-tab" data-drawer-target="drawer-nutrition">🥗 Beslenme & Uyku</button>
+                <button class="drawer-tab" data-drawer-target="drawer-scout">🔍 Scout</button>
+                <button class="drawer-tab" data-drawer-target="drawer-roadmap">🚀 Yol Haritası</button>
+            </div>
+
+            <div class="drawer-body">
+                <!-- 1. HİKAYELER -->
+                <div class="drawer-pane active" id="drawer-stories">
+                    <div class="drawer-pane-header">
+                        <h2>Efsane Kalecilerin İlham Veren Hikayeleri</h2>
+                        <p>Dünyanın en iyi kalecilerinin altyapıdan efsaneliğe uzanan ilham verici hikayelerini keşfet.</p>
+                    </div>
+                    <div class="drawer-stories-list">
+                        <!-- Manuel Neuer -->
+                        <div class="story-card">
+                            <div class="story-image-wrap">
+                                <img src="neuer.jpg" alt="Manuel Neuer" class="story-img">
+                                <span class="story-badge">Sweeper-Keeper Öncüsü</span>
+                            </div>
+                            <div class="story-content">
+                                <div class="story-header-info">
+                                    <h3>Manuel Neuer</h3>
+                                    <span class="story-subtitle">Modern Kaleciliğin Mimarisi ve Devrimi</span>
+                                </div>
+                                <p class="story-text">
+                                    Manuel Neuer, Schalke 04 altyapısına adım attığında henüz küçük bir çocuktu. İlk yıllarında boyu diğer akranlarına göre oldukça kısaydı ve birçok antrenör onun gelecekte üst düzey bir kaleci olabileceğine şüpheyle bakıyordu. Ancak Neuer'in vazgeçmeye niyeti yoktu; reflekslerini geliştirmek için mahalle aralarında sokak futbolcularıyla saatlerce ayağıyla top oynadı. Bu durum, ona modern futbolun seyrini değiştirecek harika bir ayak hakimiyeti kazandırdı.
+                                </p>
+                                <p class="story-text">
+                                    Schalke A Takımı'na yükseldiği ilk dönemlerde gösterdiği inanılmaz performanslar, kısa sürede Bayern Münih ve Almanya Milli Takımı'nın kapılarını açtı. 2014 Dünya Kupası'nda ceza sahası dışına çıkarak bir stoper gibi müdahale ettiği maçlar, kalecilik pozisyonuna "Sweeper-Keeper" kavramını kazandırdı.
+                                </p>
+                                <div class="story-takeaway">
+                                    <strong>💡 Genç Kalecilere Ders:</strong> Ekstra ayak antrenmanları yapmaktan çekinmeyin. Sahada sadece çizgi kalecisi değil, takımınızın savunmadaki ilk oyun kurucusu olun.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Thibaut Courtois -->
+                        <div class="story-card">
+                            <div class="story-image-wrap">
+                                <img src="courtois.jpg" alt="Thibaut Courtois" class="story-img">
+                                <span class="story-badge">Geçilemez Duvar</span>
+                            </div>
+                            <div class="story-content">
+                                <div class="story-header-info">
+                                    <h3>Thibaut Courtois</h3>
+                                    <span class="story-subtitle">Genk Altyapısından Şampiyonlar Ligi Zirvesine</span>
+                                </div>
+                                <p class="story-text">
+                                    Belçika'nın Genk kulübünde yetişen Thibaut Courtois, 16 yaşında 6. tercih kaleci durumundaydı. Diğer kalecilerin sakatlanması ve cezalı duruma düşmesiyle beklenmedik şekilde formayı kaptı ve yakaladığı bu fırsatı bir daha asla bırakmadı.
+                                </p>
+                                <p class="story-text">
+                                    1.99 cm'lik dev cüssesine rağmen inanılmaz bir esnekliğe sahip olan Courtois, 2022 Şampiyonlar Ligi Finali'nde Real Madrid formasıyla yaptığı 9 kurtarışla maçın adamı seçildi ve tarih yazdı.
+                                </p>
+                                <div class="story-takeaway">
+                                    <strong>💡 Genç Kalecilere Ders:</strong> Şansın ne zaman geleceği bilinmez. Asla pes etmeden antrenman yapın ve fırsat kapınızı çaldığında zihnen ve fiziken hazır olun.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Alisson Becker -->
+                        <div class="story-card">
+                            <div class="story-image-wrap">
+                                <img src="alisson.jpg" alt="Alisson Becker" class="story-img">
+                                <span class="story-badge">Brezilya Rüzgarı</span>
+                            </div>
+                            <div class="story-content">
+                                <div class="story-header-info">
+                                    <h3>Alisson Becker</h3>
+                                    <span class="story-subtitle">Sakinliğin, Tekniğin ve Güvenin Simgesi</span>
+                                </div>
+                                <p class="story-text">
+                                    Brezilya'nın Internacional kulübünde yetişen Alisson, çocukluğunda kilo problemleri ve aşırı gelişmemiş fizik yapısı nedeniyle sık sık kulübede bekletildi. Ancak Alisson pes etmek yerine beslenmesini düzeltti, ekstra kuvvet antrenmanları yaptı ve muazzam bir gelişim gösterdi.
+                                </p>
+                                <p class="story-text">
+                                    Liverpool ile Şampiyonlar Ligi ve Premier Lig kupalarını kaldıran Alisson, kaledeki inanılmaz sakinliği ve 1v1 karşı karşıya pozisyonlardaki mükemmel zamanlamasıyla tanınır.
+                                </p>
+                                <div class="story-takeaway">
+                                    <strong>💡 Genç Kalecilere Ders:</strong> Zihinsel dinginlik ve duygusal kontrol kalecinin en büyük silahıdır. Panik yapmayan kaleci defansına güven verir.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gianluigi Donnarumma -->
+                        <div class="story-card">
+                            <div class="story-image-wrap">
+                                <img src="donnaruma.jpg" alt="Gianluigi Donnarumma" class="story-img">
+                                <span class="story-badge">Genç Dahi</span>
+                            </div>
+                            <div class="story-content">
+                                <div class="story-header-info">
+                                    <h3>Gianluigi Donnarumma</h3>
+                                    <span class="story-subtitle">16 Yaşında Devler Sahnesinde</span>
+                                </div>
+                                <p class="story-text">
+                                    İtalya'dan çıkan Donnarumma, 1.96'lık dev fiziği ve doğuştan gelen refleks yeteneği ile kategori atlayarak yükseldi. 2015'te 16 yaşındayken AC Milan formasıyla Serie A maçına çıkarak futbol tarihinin en genç kalecilerinden biri oldu.
+                                </p>
+                                <p class="story-text">
+                                    EURO 2020'de İtalya'yı şampiyonluğa taşırken turnuvanın en değerli oyuncusu (MVP) seçilen ilk kaleci olarak adını altın harflerle tarihe yazdırdı.
+                                </p>
+                                <div class="story-takeaway">
+                                    <strong>💡 Genç Kalecilere Ders:</strong> Yaşınız ne olursa olsun kendinize güvenin. Baskı altında soğukkanlılığınızı korumak sizi öne geçirir.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. BESLENME & UYKU -->
+                <div class="drawer-pane" id="drawer-nutrition">
+                    <div class="drawer-pane-header">
+                        <h2>Kalecilere Özel Beslenme & Uyku Rehberi</h2>
+                        <p>Profesyonel kalecilerin fiziksel ve zihinsel performans sırları.</p>
+                    </div>
+                    <div class="nutrition-grid">
+                        <div class="nutrition-card">
+                            <div class="nutrition-icon">💧</div>
+                            <h3>1. Sıvı Dengesi & Hidrasyon</h3>
+                            <p class="nutrition-text">
+                                Vücuttaki %2'lik su kaybı refleks hızını %15 düşürür. Kaleciler maç boyu tam konsantrasyonda kalmalıdır.
+                            </p>
+                            <ul class="nutrition-list">
+                                <li><strong>Maçtan Önce:</strong> 2-3 saat kala 500-750 ml su veya elektrolitli içecek tüketin.</li>
+                                <li><strong>Maç Esnasında:</strong> Devre arasında küçük yudumlarla hidrasyon sağlayın.</li>
+                                <li><strong>Maç Sonrası:</strong> Mineralleri yerine koymak için maden suyu tercih edin.</li>
+                            </ul>
+                        </div>
+
+                        <div class="nutrition-card">
+                            <div class="nutrition-icon">😴</div>
+                            <h3>2. Kaliteli Uyku & Zihinsel Onarım</h3>
+                            <p class="nutrition-text">
+                                Derin uyku sırasında vücut büyüme hormonu (HGH) salgılar ve kas liflerini onarır.
+                            </p>
+                            <ul class="nutrition-list">
+                                <li><strong>8-9 Saat Uyku:</strong> Genç kaleciler için ideal gece uykusu süresi 8-9 saattir.</li>
+                                <li><strong>Mavi Işık Detoksu:</strong> Yatmadan 1 saat önce ekranları kapatın.</li>
+                                <li><strong>Karanlık Oda:</strong> 18-20°C tam karanlık bir oda derin uyku kalitesini artırır.</li>
+                            </ul>
+                        </div>
+
+                        <div class="nutrition-card">
+                            <div class="nutrition-icon">🥗</div>
+                            <h3>3. Maç Günü Enerji Yönetimi</h3>
+                            <p class="nutrition-text">
+                                Midede ağırlık yapmayan ama kas depolarını dolduran kompleksi yüksek gıdalar seçin.
+                            </p>
+                            <ul class="nutrition-list">
+                                <li><strong>Maçtan 3 Saat Önce:</strong> Yulaf, muz, pirinç pilavı, ızgara tavuk göğsü.</li>
+                                <li><strong>Maça 1 Saat Kala:</strong> Bir muz veya küçük bir avuç badem.</li>
+                                <li><strong>Kaçınılması Gerekenler:</strong> Yağlı ve kızartma gıdalar refleksleri yavaşlatır.</li>
+                            </ul>
+                        </div>
+
+                        <div class="nutrition-card">
+                            <div class="nutrition-icon">⚡</div>
+                            <h3>4. Kas Onarımı & Odaklanma</h3>
+                            <p class="nutrition-text">
+                                Sürekli yere atlama ve sıçramalar eklem ve kas grupları üzerinde stres yaratır.
+                            </p>
+                            <ul class="nutrition-list">
+                                <li><strong>Magnezyum:</strong> Gece kramplarını engeller ve kasları gevşetir.</li>
+                                <li><strong>Omega-3:</strong> Tepki süresini destekler ve eklem sağlığını korur.</li>
+                                <li><strong>Protein Desteği:</strong> Antrenman sonrası ilk 30 dakikada protein alımı.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. SCOUT KRİTERLERİ -->
+                <div class="drawer-pane" id="drawer-scout">
+                    <div class="drawer-pane-header">
+                        <h2>Scoutlar Kalecilerde Neye Bakar?</h2>
+                        <p>Kulüp gözlemcilerinin not defterindeki en kritik 4 madde.</p>
+                    </div>
+                    <div class="scout-grid">
+                        <div class="scout-card">
+                            <div class="scout-number">01</div>
+                            <h3>Fiziksel Atletizm & Patlayıcı Güç</h3>
+                            <p>Scoutlar ilk adım çabukluğuna, yerden kalkış hızına ve patlayıcı sıçrama kapasitesine bakar.</p>
+                            <div class="scout-check">
+                                <span>✓ Reaksiyon Süresi</span>
+                                <span>✓ Yan Çıkış Esnekliği</span>
+                                <span>✓ Çabuk Toparlanma</span>
+                            </div>
+                        </div>
+
+                        <div class="scout-card">
+                            <div class="scout-number">02</div>
+                            <h3>Ayak Kullanımı & Pas İsabeti</h3>
+                            <p>Modern futbolda kaleci 11. oyun kurucudur. Baskı altında soğukkanlı paslar öne çıkarır.</p>
+                            <div class="scout-check">
+                                <span>✓ İki Ayağı Kullanabilme</span>
+                                <span>✓ Baskıda Panik Yapmama</span>
+                                <span>✓ Diyagonal Pas İsabeti</span>
+                            </div>
+                        </div>
+
+                        <div class="scout-card">
+                            <div class="scout-number">03</div>
+                            <h3>Hava Hakimiyeti & Ceza Sahası Kontrolü</h3>
+                            <p>Duran toplarda kalecinin ceza sahasına hakim olması ve doğru zamanlama yapması aranır.</p>
+                            <div class="scout-check">
+                                <span>✓ Kararlılık ve Cesaret</span>
+                                <span>✓ İletişim ve Sesli Komut</span>
+                                <span>✓ Doğru Çıkış Zamanlaması</span>
+                            </div>
+                        </div>
+
+                        <div class="scout-card">
+                            <div class="scout-number">04</div>
+                            <h3>Zihinsel Odak & Mental Güç</h3>
+                            <p>Hatalı bir gol sonrası mental olarak oyundan düşmeyip maça konsantre kalabilmek çok önemlidir.</p>
+                            <div class="scout-check">
+                                <span>✓ 90 Dakika Odaklanma</span>
+                                <span>✓ Liderlik ve Yönlendirme</span>
+                                <span>✓ Duygusal Dayanıklılık</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. YOL HARİTASI -->
+                <div class="drawer-pane" id="drawer-roadmap">
+                    <div class="drawer-pane-header">
+                        <h2>Altyapıdan A Takıma Çıkış Yol Haritası</h2>
+                        <p>Genç bir kalecinin adım adım izlemesi gereken gelişim aşamaları.</p>
+                    </div>
+                    <div class="roadmap-timeline">
+                        <div class="roadmap-item">
+                            <div class="roadmap-marker">1</div>
+                            <div class="roadmap-content">
+                                <span class="roadmap-step-tag">Aşama 1 (U14 - U16)</span>
+                                <h3>Temel Teknik & Hareket Kinetiği</h3>
+                                <p>Doğru duruş (set position), el ve vücut koordinasyonu ve düşüş teknikleri oturtulmalıdır.</p>
+                            </div>
+                        </div>
+
+                        <div class="roadmap-item">
+                            <div class="roadmap-marker">2</div>
+                            <div class="roadmap-content">
+                                <span class="roadmap-step-tag">Aşama 2 (U17 - U19)</span>
+                                <h3>Taktiksel Zeka & İletişim</h3>
+                                <p>Savunma arkası hamleleri okuma ve stoper bloğunu sesli yönlendirme becerileri geliştirilir.</p>
+                            </div>
+                        </div>
+
+                        <div class="roadmap-item">
+                            <div class="roadmap-marker">3</div>
+                            <div class="roadmap-content">
+                                <span class="roadmap-step-tag">Aşama 3 (Geçiş Dönemi)</span>
+                                <h3>A Takım İdmanları & Tempolu Şutlar</h3>
+                                <p>A Takım seviyesinde şut sertliği artar. Fiziksel kuvvet antrenmanları hız kazanır.</p>
+                            </div>
+                        </div>
+
+                        <div class="roadmap-item">
+                            <div class="roadmap-marker">4</div>
+                            <div class="roadmap-content">
+                                <span class="roadmap-step-tag">Aşama 4 (Profesyonellik)</span>
+                                <h3>Fırsatı Yakalama & Kalıcı Olma</h3>
+                                <p>Forma şansı geldiğinde soğukkanlılıkla kaleyi korumak sizi kalıcı profesyonel yapar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+    </div>
+
+    <!-- ============================================
          AUTH MODAL (Kayıt / Giriş)
          ============================================ -->
     <div class="modal-overlay" id="authModal">
@@ -86,8 +381,6 @@
     </div>
 
 
-
-
     <!-- ============================================
          HERO - KALECİLER
          ============================================ -->
@@ -104,23 +397,19 @@
                 </p>
                 <div class="hero-subnav">
                     <a href="#highlights" class="subnav-link">🎬 Highlights</a>
-                    <a href="#training" class="subnav-link">📅 Training</a>
-                    <a href="#analysis" class="subnav-link">📊 Analysis</a>
+                    <a href="#training" class="subnav-link">📅 AI Training</a>
+                    <button class="subnav-link btn-open-drawer-hero" id="heroDrawerBtn">🍔 Özel Rehber Menüsü</button>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="hero-image-wrapper gk-wrapper">
-                    <img src="donnaruma.jpg" alt="Donnarumma" class="player-img gk-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="player-img-fallback" style="display:none;">
-                        <span>🧤</span>
-                        <p>donnaruma.jpg<br>buraya ekle</p>
-                    </div>
+                    <img src="donnaruma.jpg" alt="Donnarumma" class="player-img gk-img">
                 </div>
             </div>
         </div>
     </section>
 
-            <!-- ============================================
+    <!-- ============================================
          PRO HIGHLIGHTS
          ============================================ -->
     <section class="highlights" id="highlights">
@@ -143,7 +432,7 @@
                     <button class="tab-btn" data-tab="both">⚡ Her İkisi</button>
                 </div>
 
-                                <!-- Sağ Ayak İçeriği -->
+                <!-- Sağ Ayak İçeriği -->
                 <div class="tab-content active" id="tab-right">
                     <div class="video-scroll">
                         <div class="video-card">
@@ -193,7 +482,8 @@
                             <div class="video-info">
                                 <h3>Joan Garcia</h3>
                                 <p>FC Barcelona • İspanya Milli Takımı, sweeper-keeper ve La Liga şampiyonu.</p>
-                               <button class="btn btn-analyze" data-keeper="joangarcia">🔍 Bu Videodaki Kaleciyi Analiz Et</button>                            </div>
+                               <button class="btn btn-analyze" data-keeper="joangarcia">🔍 Bu Videodaki Kaleciyi Analiz Et</button>
+                            </div>
                         </div>
                         <div class="video-card">
                             <div class="video-thumb">
@@ -238,7 +528,7 @@
                     </div>
                 </div>
 
-                                               <!-- Sol Ayak İçeriği -->
+                <!-- Sol Ayak İçeriği -->
                 <div class="tab-content" id="tab-left">
                     <div class="video-scroll">
                         <div class="video-card">
@@ -262,13 +552,11 @@
                              </div>
                         </div>
                     </div>
-
                 </div>
 
-                               <!-- Her İkisi İçeriği -->
+                <!-- Her İkisi İçeriği -->
                 <div class="tab-content" id="tab-both">
                     <div class="video-scroll">
-                        <!-- Sağ Ayak Videoları -->
                         <div class="video-card">
                             <div class="video-thumb">
                                 <iframe src="https://www.youtube.com/embed/nmPvtyQpWhs" title="Sağ Ayak Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -301,57 +589,6 @@
                         </div>
                         <div class="video-card">
                             <div class="video-thumb">
-                                <iframe src="https://www.youtube.com/embed/0CIUyXuj6Ok" title="Sağ Ayak Video 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="video-info">
-                                <h3>David Raya</h3>
-                                <p>Arsenal • İspanya Milli Takımı, sweeper-keeper ve çapraz orta uzmanı.</p>
-                                <button class="btn btn-analyze" data-keeper="raya">🔍 Bu Videodaki Kaleciyi Analiz Et</button>
-                            </div>
-                        </div>
-                        <div class="video-card">
-                            <div class="video-thumb">
-                                <iframe src="https://www.youtube.com/embed/6JEybM7ZH2k" title="Sağ Ayak Video 5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="video-info">
-                                <h3>Joan Garcia</h3>
-                                <p>Espanyol • İspanya Milli Takımı, sweeper-keeper ve La Liga yeteneği.</p>
-                                <button class="btn btn-analyze" data-keeper="Garcia">🔍 Bu Videodaki Kaleciyi Analiz Et</button>
-                            </div>
-                        </div>
-                        <div class="video-card">
-                            <div class="video-thumb">
-                                <iframe src="https://www.youtube.com/embed/sqa4KbhbP20" title="Sağ Ayak Video 6" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="video-info">
-                                <h3>Senne Lammens</h3>
-                                <p>Royal Antwerp • Belçika Milli Takımı, Premier League transfer gözdesi.</p>
-                                <button class="btn btn-analyze" data-keeper="lammens">🔍 Bu Videodaki Kaleciyi Analiz Et</button>
-                            </div>
-                        </div>
-                        <div class="video-card">
-                            <div class="video-thumb">
-                                <iframe src="https://www.youtube.com/embed/XfDE2aLkECs" title="Sağ Ayak Video 7" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="video-info">
-                                <h3>Bart Verbruggen</h3>
-                                <p>Brighton • Hollanda Milli Takımı, sweeper-keeper ve dağıtım uzmanı.</p>
-                                <button class="btn btn-analyze" data-keeper="verbruggen">🔍 Bu Videodaki Kaleciyi Analiz Et</button>
-                            </div>
-                        </div>
-                        <div class="video-card">
-                            <div class="video-thumb">
-                                <iframe src="https://www.youtube.com/embed/24mTPkL-vzM" title="Sağ Ayak Video 8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="video-info">
-                                <h3>Yann Sommer</h3>
-                                <p>Inter • İsviçre Milli Takımı, Bundesliga rekoru ve Serie A şampiyonu.</p>
-                                <button class="btn btn-analyze" data-keeper="sommer">🔍 Bu Videodaki Kaleciyi Analiz Et</button>
-                            </div>
-                        </div>
-                        <!-- Sol Ayak Videoları -->
-                        <div class="video-card">
-                            <div class="video-thumb">
                                 <iframe src="https://www.youtube.com/embed/Z8h9xzIfSuE" title="Ederson Moraes - Her İkisi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                             <div class="video-info">
@@ -370,53 +607,13 @@
                                 <button class="btn btn-analyze" data-keeper="oblak">🔍 Bu Videodaki Kaleciyi Analiz Et</button>
                             </div>
                         </div>
-                        <div class="video-card">
-                            <div class="video-thumb">
-                                <iframe src="https://www.youtube.com/embed/XoLR-LXiujs" title="Mike Maignan - Her İkisi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="video-info">
-                                <h3>Mike Maignan</h3>
-                                <p>AC Milan • Fransa Milli Takımı, refleks canavarı.</p>
-                                <button class="btn btn-analyze" data-keeper="Maignan">🔍 Bu Videodaki Kaleciyi Analiz Et</button>
-                            </div>
-                        </div>
-                        <div class="video-card">
-                            <div class="video-thumb">
-                                <iframe src="https://www.youtube.com/embed/r2_Hw685sCg" title="Giorgi Mamardashvili - Her İkisi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="video-info">
-                                <h3>Giorgi Mamardashvili</h3>
-                                <p>Liverpool • Gürcistan'ın yıldızı, büyük potansiyel.</p>
-                                <button class="btn btn-analyze" data-keeper="Mamardashvili">🔍 Bu Videodaki Kaleciyi Analiz Et</button>
-                            </div>
-                        </div>
-                        <div class="video-card">
-                            <div class="video-thumb">
-                                <iframe src="https://www.youtube.com/embed/WZH1XhLbweo" title="Unai Simon - Her İkisi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="video-info">
-                                <h3>Unai Simon</h3>
-                                <p>Athletic Bilbao • İspanya Milli Takımı, penaltı uzmanı.</p>
-                                <button class="btn btn-analyze" data-keeper="Simon">🔍 Bu Videodaki Kaleciyi Analiz Et</button>
-                            </div>
-                        </div>
-                        <div class="video-card">
-                            <div class="video-thumb">
-                                <iframe src="https://www.youtube.com/embed/0CtNJsp_eoQ" title="Guglielmo Vicario - Her İkisi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="video-info">
-                                <h3>Guglielmo Vicario</h3>
-                                <p>Tottenham • İtalyan, hızlı refleksler.</p>
-                                <button class="btn btn-analyze" data-keeper="Vicario">🔍 Bu Videodaki Kaleciyi Analiz Et</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-        <!-- ============================================
+    <!-- ============================================
          AI TRAINING PLAN
          ============================================ -->
     <section class="training" id="training">
@@ -528,8 +725,7 @@
         </div>
     </section>
 
-
-<!-- ============================================
+    <!-- ============================================
          AI KALECİ ANALİZ MODAL
          ============================================ -->
     <div class="modal-overlay" id="analyzeModal">
@@ -558,15 +754,14 @@
                 <div class="analyze-content">
                     <div class="analyze-section">
                         <h4>🎯 Teknik Güçlü Yönler</h4>
-                        <p>Donnarumma, 1.96 cm boyuna rağmen refleksleri çok keskin bir kaleci. Penaltılarda "bekle-yanıl" tekniğini mükemmel kullanıyor — vurana kadar hareket etmiyor, son anda patlıyor. Hava toplarında boy avantajını agresif kullanıyor, box'a cesaretle çıkıyor. Ayakla oyunu da gelişmiş; baskı altında panik yapmadan kısa pasla oyun kurabiliyor. Kritik anlarda soğukkanlılığını koruyor, özellikle büyük maçlarda performansı artıyor.</p>
+                        <p>Donnarumma, 1.96 cm boyuna rağmen refleksleri çok keskin bir kaleci. Penaltılarda "bekle-yanıl" tekniğini mükemmel kullanıyor. Hava toplarında boy avantajını agresif kullanıyor.</p>
                     </div>
                     <div class="analyze-section">
                         <h4>📌 Genç Kaleciler İçin Örnek Alınacaklar</h4>
                         <ul class="analyze-list">
                             <li><strong>Penaltıda sabret:</strong> Vurana kadar küçük hareketler yapma, son anda patla.</li>
-                            <li><strong>Hava topunda agresif ol:</strong> Boyun kısa bile olsa, çıkış zamanlaması ve cesaret fark yaratır.</li>
-                            <li><strong>Ayakla oyunu ciddiye al:</strong> Modern kalecilikte ayakların kale vuruşundan öte, oyun kurulumudur.</li>
-                            <li><strong>Soğukkanlılık:</strong> Baskı anında nefes al, acele etme. Panik yapan kaleci hata yapar.</li>
+                            <li><strong>Hava topunda agresif ol:</strong> Çıkış zamanlaması ve cesaret fark yaratır.</li>
+                            <li><strong>Ayakla oyunu ciddiye al:</strong> Modern kalecilikte ayaklar oyun kurulumudur.</li>
                         </ul>
                     </div>
                 </div>
@@ -575,324 +770,9 @@
         </div>
     </div>
 
-
     <!-- ============================================
          FOOTER
          ============================================ -->
-
-    <!-- ============================================
-         EFSANE KALECİLERİN İLHAM VEREN HİKAYELERİ
-         ============================================ -->
-    <section class="stories-section" id="stories">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Zirvedekilerin Yolculuğu</span>
-                <h2 class="section-title">Efsane Kalecilerin İlham Veren Hikayeleri</h2>
-                <p class="section-desc">
-                    Zirveye ulaşmak sadece yetenekle değil; sarsılmaz bir irade, disiplin ve engeller karşısında Pes etmeyen bir karakterle mümkündür.
-                    Dünyanın en iyi kalecilerinin altyapıdan efsaneliğe uzanan ilham verici hikayelerini keşfet.
-                </p>
-            </div>
-
-            <div class="stories-grid">
-                <!-- Manuel Neuer -->
-                <div class="story-card">
-                    <div class="story-image-wrap">
-                        <img src="neuer.jpg" alt="Manuel Neuer" class="story-img">
-                        <span class="story-badge">Sweeper-Keeper Öncüsü</span>
-                    </div>
-                    <div class="story-content">
-                        <div class="story-header-info">
-                            <h3>Manuel Neuer</h3>
-                            <span class="story-subtitle">Modern Kaleciliğin Mimarisi ve Devrimi</span>
-                        </div>
-                        <p class="story-text">
-                            Manuel Neuer, Schalke 04 altyapısına adım attığında henüz küçük bir çocuktu. İlk yıllarında boyu diğer akranlarına göre oldukça kısaydı ve birçok antrenör onun gelecekte üst düzey bir kaleci olabileceğine şüpheyle bakıyordu. Ancak Neuer'in vazgeçmeye niyeti yoktu; reflekslerini geliştirmek için mahalle aralarında sokak futbolcularıyla saatlerce ayağıyla top oynadı. Bu durum, ona modern futbolun seyrini değiştirecek harika bir ayak hakimiyeti kazandırdı.
-                        </p>
-                        <p class="story-text">
-                            Schalke A Takımı'na yükseldiği ilk dönemlerde gösterdiği inanılmaz performanslar, kısa sürede Bayern Münih ve Almanya Milli Takımı'nın kapılarını açtı. 2014 Dünya Kupası'nda ceza sahası dışına çıkarak bir stoper gibi müdahale ettiği maçlar, kalecilik pozisyonuna "Sweeper-Keeper" (Süpürücü Kaleci) kavramını kazandırdı. Karşılaştığı ağır sakatlıklara ve ayağındaki kırıklara rağmen yılmadan çalışarak sahalara hep daha güçlü döndü.
-                        </p>
-                        <div class="story-takeaway">
-                            <strong>💡 Genç Kalecilere Ders:</strong> Ekstra ayak antrenmanları yapmaktan çekinmeyin. Sahada sadece çizgi kalecisi değil, takımınızın savunmadaki ilk oyun kurucusu olun.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Thibaut Courtois -->
-                <div class="story-card">
-                    <div class="story-image-wrap">
-                        <img src="courtois.jpg" alt="Thibaut Courtois" class="story-img">
-                        <span class="story-badge">Geçilemez Duvar</span>
-                    </div>
-                    <div class="story-content">
-                        <div class="story-header-info">
-                            <h3>Thibaut Courtois</h3>
-                            <span class="story-subtitle">Genk Altyapısından Şampiyonlar Ligi Zirvesine</span>
-                        </div>
-                        <p class="story-text">
-                            Belçika'nın Genk kulübünde yetişen Thibaut Courtois, 16 yaşında 6. tercih kaleci durumundaydı. Diğer kalecilerin sakatlanması ve cezalı duruma düşmesiyle beklenmedik şekilde formayı kaptı ve yakaladığı bu fırsatı bir daha asla bırakmadı. Genk ile yaşadığı şampiyonluk, Chelsea ve hemen ardından Atletico Madrid'e kiralanmasıyla devam eden süreçte soğukkanlılığıyla herkesi büyüledi.
-                        </p>
-                        <p class="story-text">
-                            1.99 cm'lik dev cüssesine rağmen inanılmaz bir esnekliğe sahip olan Courtois, 2022 Şampiyonlar Ligi Finali'nde Real Madrid formasıyla yaptığı 9 kurtarışla maçın adamı seçildi ve tarih yazdı. Kariyeri boyunca ağır eleştiriler aldığı dönemler olsa da, zihinsel olarak hiçbir zaman oyundan kopmadı. Zihinsel odaklanma ve disiplinli yaşam tarzı sayesinde dünyanın en zorlu liglerinde sürekli zirvede kaldı.
-                        </p>
-                        <div class="story-takeaway">
-                            <strong>💡 Genç Kalecilere Ders:</strong> Şansın ne zaman geleceği bilinmez. Asla pes etmeden antrenman yapın ve fırsat kapınızı çaldığında zihnen ve fiziken hazır olun.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Alisson Becker -->
-                <div class="story-card">
-                    <div class="story-image-wrap">
-                        <img src="alisson.jpg" alt="Alisson Becker" class="story-img">
-                        <span class="story-badge">Brezilya Rüzgarı</span>
-                    </div>
-                    <div class="story-content">
-                        <div class="story-header-info">
-                            <h3>Alisson Becker</h3>
-                            <span class="story-subtitle">Sakinliğin, Tekniğin ve Güvenin Simgesi</span>
-                        </div>
-                        <p class="story-text">
-                            Brezilya'nın Internacional kulübünde yetişen Alisson, çocukluğunda kilo problemleri ve aşırı gelişmemiş fizik yapısı nedeniyle sık sık kulübede bekletildi. Ağabeyi Muriel de kaleci olduğu için sürekli aile içi ve kulüp içi sert bir rekabetin ortasındaydı. Ancak Alisson, pes etmek yerine beslenmesini düzeltti, ekstra kuvvet antrenmanları yaptı ve gelişim sıçraması yaşadı.
-                        </p>
-                        <p class="story-text">
-                            Roma'da Szczęsny'nin arkasında bir sezon yedek bekledikten sonra kaleyi devraldı ve muhteşem performansıyla Liverpool'a rekor bonservis bedeliyle transfer oldu. Liverpool ile Şampiyonlar Ligi ve Premier Lig kupalarını kaldıran Alisson, kaledeki inanılmaz sakinliği ve 1v1 karşı karşıya pozisyonlardaki mükemmel açılma zamanlamasıyla tanınır. Maçın en kritik anında bile panik yapmaması, savunma hattına devasa bir güven aşılar.
-                        </p>
-                        <div class="story-takeaway">
-                            <strong>💡 Genç Kalecilere Ders:</strong> Zihinsel dinginlik ve duygusal kontrol kalecinin en büyük silahıdır. Panik yapmayan kaleci, defansına özgüven verir.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Gianluigi Donnarumma -->
-                <div class="story-card">
-                    <div class="story-image-wrap">
-                        <img src="donnaruma.jpg" alt="Gianluigi Donnarumma" class="story-img">
-                        <span class="story-badge">Genç Dahi</span>
-                    </div>
-                    <div class="story-content">
-                        <div class="story-header-info">
-                            <h3>Gianluigi Donnarumma</h3>
-                            <span class="story-subtitle">16 Yaşında Devler Sahnesinde</span>
-                        </div>
-                        <p class="story-text">
-                            İtalya'nın Castellammare di Stabia kasabasından çıkan Gianluigi Donnarumma, AC Milan akademi yetkililerinin dikkatini çektiğinde henüz çocuk yaştaydı. 1.96'lık dev fiziği ve doğuştan gelen refleks yeteneği ile kategori atlayarak yükseldi. 25 Ekim 2015'te, henüz 16 yaşındayken Milan formasıyla Serie A maçına çıkarak futbol tarihinin en genç kalecilerinden biri oldu.
-                        </p>
-                        <p class="story-text">
-                            Genç yaşta İtalya gibi taktikselliğin ve baskının tavan yaptığı bir ligde oynamak büyük bir zihinsel olgunluk gerektiriyordu. Donnarumma, San Siro'nun yoğun baskısı altında bile soğukkanlı kalarak penaltılardaki reaksiyon hızıyla devleşti. EURO 2020'de İtalya'yı şampiyonluğa taşırken turnuvanın en değerli oyuncusu (MVP) seçilen ilk kaleci olarak adını altın harflerle tarihe yazdırdı.
-                        </p>
-                        <div class="story-takeaway">
-                            <strong>💡 Genç Kalecilere Ders:</strong> Yaşınız ne olursa olsun kendinize güvenin. Baskı altında soğukkanlılığınızı korumak sizi yaşıtlarınızdan ayırır.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-         BESLENME VE UYKU REHBERİ
-         ============================================ -->
-    <section class="nutrition-section" id="nutrition">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Performans & Yakıt</span>
-                <h2 class="section-title">Kalecilere Özel Beslenme & Uyku Rehberi</h2>
-                <p class="section-desc">
-                    Bir kalecinin sahada saniyelik reaksiyonlar verebilmesi için vücuduna doğru yakıtı yüklemesi ve zihnini dinlendirmesi şarttır. Profesyonel kalecilerin fiziksel ve zihinsel performans sırları.
-                </p>
-            </div>
-
-            <div class="nutrition-grid">
-                <!-- Hidrasyon -->
-                <div class="nutrition-card">
-                    <div class="nutrition-icon">💧</div>
-                    <h3>1. Sıvı Dengesi & Hidrasyon</h3>
-                    <p class="nutrition-text">
-                        Vücuttaki %2'lik bir su kaybı bile refleks hızını %15 oranında düşürür. Kaleciler maç boyu yüksek konsantrasyon halindedir.
-                    </p>
-                    <ul class="nutrition-list">
-                        <li><strong>Maçtan Önce:</strong> Maça 2-3 saat kala 500-750 ml su veya elektrolitli içecek tüketin.</li>
-                        <li><strong>Maç Esnasında:</strong> Her devre arasında ve duraklamalarda küçük yudumlarla hidrasyon sağlayın.</li>
-                        <li><strong>Maç Sonrası:</strong> Terle kaybedilen mineralleri yerine koymak için maden suyu ve izotonik içecekler tercih edin.</li>
-                    </ul>
-                </div>
-
-                <!-- Uyku & Recovery -->
-                <div class="nutrition-card">
-                    <div class="nutrition-icon">😴</div>
-                    <h3>2. Kaliteli Uyku & Zihinsel Onarım</h3>
-                    <p class="nutrition-text">
-                        Derin uyku sırasında vücut büyüme hormonu (HGH) salgılar ve kas liflerini onarır. Beyin ise gün içindeki pozisyonel bilgileri işler.
-                    </p>
-                    <ul class="nutrition-list">
-                        <li><strong>8-9 Saat Uyku:</strong> Genç kaleciler için ideal gece uykusu süresi 8-9 saattir.</li>
-                        <li><strong>Mavi Işık Detoksu:</strong> Yatmadan 1 saat önce telefon ve ekranları kapatarak melatonin salgılanmasını sağlayın.</li>
-                        <li><strong>Oda Sıcaklığı & Karanlık:</strong> 18-20°C tam karanlık bir oda derin uyku kalitesini artırır.</li>
-                    </ul>
-                </div>
-
-                <!-- Maç Günü Beslenmesi -->
-                <div class="nutrition-card">
-                    <div class="nutrition-icon">🥗</div>
-                    <h3>3. Maç Günü Enerji Yönetimi</h3>
-                    <p class="nutrition-text">
-                        Midede ağırlık yapmayan ama kas depolarını (glikojen) dolduran kompleks karbonhidratlar ve kaliteli proteinler tercih edilmelidir.
-                    </p>
-                    <ul class="nutrition-list">
-                        <li><strong>Maçtan 3-4 Saat Önce:</strong> Yulaf, muz, pirinç Pilavı, ızgara tavuk göğsü gibi hazmı kolay gıdalar.</li>
-                        <li><strong>Maça 1 Saat Kala:</strong> Kan şekerini dengede tutacak bir muz veya küçük bir avuç badem/ceviz.</li>
-                        <li><strong>Kaçınılması Gerekenler:</strong> Yağlı, kızartma ve aşırı şekerli gıdalar refleksleri hantallaştırır.</li>
-                    </ul>
-                </div>
-
-                <!-- Takviyeler & Kas Sağlığı -->
-                <div class="nutrition-card">
-                    <div class="nutrition-icon">⚡</div>
-                    <h3>4. Kas Onarımı & Odaklanma</h3>
-                    <p class="nutrition-text">
-                        Sürekli yere atlama ve patlayıcı sıçramalar eklem ve kas grupları üzerinde yüksek stres yaratır.
-                    </p>
-                    <ul class="nutrition-list">
-                        <li><strong>Magnezyum:</strong> Gece kramplarını engeller ve kasların gevşemesine yardımcı olur.</li>
-                        <li><strong>Omega-3:</strong> Beyin fonksiyonlarını ve tepki süresini destekler, eklem iltihaplanmasını azaltır.</li>
-                        <li><strong>Protein Desteği:</strong> Maç veya antrenman sonrası 30 dakika içinde kas onarımı için protein alımı.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-         SCOUTLAR NEYE BAKAR?
-         ============================================ -->
-    <section class="scout-section" id="scout">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Gözlemci Raporu</span>
-                <h2 class="section-title">Scoutlar Kalecilerde Neye Bakar?</h2>
-                <p class="section-desc">
-                    Profesyonel kulüp gözlemcileri ve yetenek avcıları genç bir kaleciyi izlerken sadece yaptığı kurtarışlara değil, sahadaki tüm duruşuna bakar. İşte scout not defterindeki en kritik 4 madde.
-                </p>
-            </div>
-
-            <div class="scout-grid">
-                <div class="scout-card">
-                    <div class="scout-number">01</div>
-                    <h3>Fiziksel Atletizm & Patlayıcı Güç</h3>
-                    <p>
-                        Sadece boy uzunluğu yeterli değildir. Scoutlar ilk adım çabukluğuna, yerden kalkış hızına ve kısa mesafedeki patlayıcı sıçrama kapasitesine bakar. Yan toplarda doğru zamanlamayla yükselme yeteneği önceliklidir.
-                    </p>
-                    <div class="scout-check">
-                        <span>✓ Reaksiyon Süresi</span>
-                        <span>✓ Yan Çıkış Esnekliği</span>
-                        <span>✓ Çabuk Toparlanma</span>
-                    </div>
-                </div>
-
-                <div class="scout-card">
-                    <div class="scout-number">02</div>
-                    <h3>Ayak Kullanımı & Baskı Altında Pas</h3>
-                    <p>
-                        Modern futbolda kaleci, takımı için 11. saha içi oyuncusudur. Rakip ön alan baskısı yaparken soğukkanlılıkla kısa pas çıkarabilmek ve gerektiğinde ters kanada isabetli uzun top atabilmek scouting raporunu doğrudan olumlu etkiler.
-                    </p>
-                    <div class="scout-check">
-                        <span>✓ İki Ayağı Kullanabilme</span>
-                        <span>✓ Baskıda Panik Yapmama</span>
-                        <span>✓ Diyagonal Pas İsabeti</span>
-                    </div>
-                </div>
-
-                <div class="scout-card">
-                    <div class="scout-number">03</div>
-                    <h3>Hava Hakimiyeti & Ceza Sahası Kontrolü</h3>
-                    <p>
-                        Yan toplarda ve duran toplarda kalecinin alan hakimiyeti hayati önem taşır. Scoutlar kalecinin "Benim alanım!" mesajını rakibe ve kendi defansına verip vermediğine, çıkış zamanlamasına ve topu tutma/yumruklama kararlılığına bakar.
-                    </p>
-                    <div class="scout-check">
-                        <span>✓ Kararlılık ve Cesaret</span>
-                        <span>✓ İletişim ve Sesli Komut</span>
-                        <span>✓ Doğru Çıkış Zamanlaması</span>
-                    </div>
-                </div>
-
-                <div class="scout-card">
-                    <div class="scout-number">04</div>
-                    <h3>Zihinsel Odak & Hata Sonrası Reaksiyon</h3>
-                    <p>
-                        Kalecilik 90 dakika boyunca kesintisiz konsantrasyon gerektirir. En kritik kriterlerden biri: Kaleci hatalı bir gol yediğinde mental olarak oyundan düşüyor mu, yoksa hemen toparlanıp maça devam edebiliyor mu?
-                    </p>
-                    <div class="scout-check">
-                        <span>✓ 90 Dakika Odaklanma</span>
-                        <span>✓ Liderlik ve Defansı Yönlendirme</span>
-                        <span>✓ Duygusal Dayanıklılık</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================
-         A TAKIMA ÇIKIŞ YOL HARİTASI
-         ============================================ -->
-    <section class="roadmap-section" id="roadmap">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Kariyer Basamakları</span>
-                <h2 class="section-title">Altyapıdan A Takıma Çıkış Yol Haritası</h2>
-                <p class="section-desc">
-                    Akademiden profesyonel sahaya giden yol engebeli ve zordur. Genç bir kalecinin adım adım izlemesi gereken gelişim aşamaları.
-                </p>
-            </div>
-
-            <div class="roadmap-timeline">
-                <div class="roadmap-item">
-                    <div class="roadmap-marker">1</div>
-                    <div class="roadmap-content">
-                        <span class="roadmap-step-tag">Aşama 1 (U14 - U16)</span>
-                        <h3>Temel Teknik & Hareket Kinetiği</h3>
-                        <p>
-                            Bu yaş grubunda odak noktası tamamen doğru duruş (set position), el ve vücut koordinasyonu, düşüş teknikleri (diving mechanics) ve sakatlanmayı önleyici hareket formlarıdır. Çeşitli zeminlerde ve açılarda binlerce tekrar yapılarak temel teknik oturtulmalıdır.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="roadmap-item">
-                    <div class="roadmap-marker">2</div>
-                    <div class="roadmap-content">
-                        <span class="roadmap-step-tag">Aşama 2 (U17 - U19)</span>
-                        <h3>Taktiksel Zeka & Maç İçi İletişim</h3>
-                        <p>
-                            Akademi seviyesinin en kritik evresidir. Savunma arkasına atılan topları okuma, ceza sahası çizgisini doğru parselleme ve önündeki stoper bloğunu sürekli sesli komutlarla yönlendirme becerileri geliştirilir. Ayakla oyun hızlandırılır.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="roadmap-item">
-                    <div class="roadmap-marker">3</div>
-                    <div class="roadmap-content">
-                        <span class="roadmap-step-tag">Aşama 3 (Geçiş Dönemi)</span>
-                        <h3>A Takım İdmanları & Fiziksel Sertlik</h3>
-                        <p>
-                            A Takım antrenmanlarına çağrıldığınızda şut sertliği ve oyun hızı 2 katına çıkar. Bu aşamada fiziksel kuvvet antrenmanları artırılmalı, tecrübeli kalecilerin davranışları gözlemlenmeli ve verilen şanslarda hatasız, özgüvenli bir duruş sergilenmelidir.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="roadmap-item">
-                    <div class="roadmap-marker">4</div>
-                    <div class="roadmap-content">
-                        <span class="roadmap-step-tag">Aşama 4 (Profesyonellik)</span>
-                        <h3>Fırsatı Yakalama & Kalıcı Olma</h3>
-                        <p>
-                            İlk maça çıkmak sadece bir başlangıçtır. Yedek kaldığınız dönemlerde küsmeyip A Takım disiplinini korumak, forma şansı geldiğinde ise soğukkanlılıkla kaleyi korumak sizi kalıcı bir profesyonel yapar.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -907,15 +787,17 @@
                     <h4>Kaleciler</h4>
                     <ul>
                         <li><a href="#highlights">Highlights</a></li>
-                        <li><a href="#training">Training</a></li>
-                        <li><a href="#analysis">Analysis</a></li>
+                        <li><a href="#training">AI Training</a></li>
+                        <li><a href="#" class="drawer-nav-link" data-tab="stories">Efsane Hikayeler</a></li>
+                        <li><a href="#" class="drawer-nav-link" data-tab="nutrition">Beslenme & Uyku</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Platform</h4>
                     <ul>
                         <li><a href="index.html">Ana Sayfa</a></li>
-                        <li><a href="#">Diğer Pozisyonlar</a></li>
+                        <li><a href="#" class="drawer-nav-link" data-tab="scout">Scout Kriterleri</a></li>
+                        <li><a href="#" class="drawer-nav-link" data-tab="roadmap">Yol Haritası</a></li>
                     </ul>
                 </div>
             </div>
