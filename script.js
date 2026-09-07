@@ -570,7 +570,7 @@ const analyzeTitle = document.querySelector('.analyze-result h3');
 const analyzeContent = document.querySelector('.analyze-content');
 const analyzeBtns = document.querySelectorAll('.btn-analyze[data-keeper]');
 
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'https://nextgen-server-six.vercel.app';
 
 const analyzeMessages = [
     "Videoyu inceliyorum...",
