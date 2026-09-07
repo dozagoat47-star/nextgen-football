@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bekler - NextGen Football</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="fullback-home">
+
+    <!-- ============================================
+         NAVBAR
+         ============================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">⚽</div>
+                <span>NextGen Football</span>
+            </a>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menüyü aç" aria-controls="navLinks" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="auth-nav" id="authNav">
+                <button class="btn btn-primary btn-auth" id="authBtn">Giriş Yap</button>
+            </div>
+
+            <ul class="nav-links goalkeeper-menu" id="navLinks">
+                <li><a href="index.html"><span>Ana Sayfa</span><small>NextGen Football'a dön</small></a></li>
+                <li><a href="#highlights"><span>Highlights</span><small>Bek görüntüleri</small></a></li>
+                <li><a href="#training"><span>AI Antrenman</span><small>Kendi programını oluştur</small></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO - BEKLER
+         ============================================ -->
+    <section class="hero hero-fullback">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <!-- Açılıp kapanan seçenek paneli (slide-in drawer) -->
+                <div class="story-panel" id="storyPanel" style="z-index: 50;">
+                    <button class="story-panel-toggle" id="storyPanelToggle" aria-expanded="false">
+                        <i class="fas fa-bars story-toggle-icon"></i>
+                        <span class="story-toggle-text">Daha Fazla Seçenek İçin Dokun</span>
+                        <span class="story-toggle-arrow">▾</span>
+                    </button>
+
+                    <!-- Karartma katmanı (dışa tıklayınca kapanır) -->
+                    <div class="story-overlay" id="storyOverlay"></div>
+
+                    <!-- Kayar panel -->
+                    <div class="story-drawer" id="storyDrawer" role="dialog" aria-modal="true" aria-label="Seçenekler">
+                        <button class="story-drawer-close" id="storyDrawerClose" aria-label="Kapat"><i class="fas fa-times"></i></button>
+                        <div class="story-drawer-body">
+                            <!-- Günlük Seri widget -->
+                            <div class="streak-widget">
+                                <div class="streak-header">
+                                    <span class="streak-flame">🔥</span>
+                                    <span class="streak-count" id="streakCount">0</span>
+                                    <span class="streak-label">günlük seri</span>
+                                </div>
+                                <div class="streak-days" id="streakDays"></div>
+                            </div>
+
+                            <!-- Oyuncu Hikayeleri butonu -->
+                            <button class="stories-open-btn" id="storiesOpenBtn">
+                                <i class="fas fa-book-open"></i>
+                                <span>Oyuncu Hikayeleri</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+
+                            <!-- Beslenme & Uyku butonu -->
+                            <button class="stories-open-btn" id="nutritionOpenBtn">
+                                <i class="fas fa-apple-alt"></i>
+                                <span>Beslenme & Uyku</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+
+                            <!-- İstatistiklerim butonu -->
+                            <button class="stories-open-btn" id="statsOpenBtn">
+                                <i class="fas fa-chart-line"></i>
+                                <span>İstatistiklerim</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+
+                            <!-- İstatistik Verilerim butonu -->
+                            <button class="stories-open-btn" id="fbStatsDataOpenBtn">
+                                <i class="fas fa-database"></i>
+                                <span>İstatistik Verilerim</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+
+                            <!-- Bek'e özel içerikler yakında buraya gelecek -->
+                            <p style="color: rgba(226,232,240,0.6); font-size: 0.85rem; padding-top: 8px;">
+                                <i class="fas fa-right-left" style="color: var(--accent-red); margin-right: 6px;"></i>
+                                Bek için özel seçenekler yakında burada olacak.
+                            </p>
+                        </div>
+
+                        <!-- Alt profil çubuğu -->
+                        <div class="story-drawer-footer">
+                            <div class="drawer-profile" id="drawerProfile">
+                                <div class="drawer-profile-avatar" id="drawerProfileAvatar">👤</div>
+                                <span class="drawer-profile-name" id="drawerProfileName">Misafir</span>
+                            </div>
+                            <button class="drawer-settings-btn" id="drawerSettingsBtn" aria-label="Ayarlar">
+                                <i class="fas fa-cog"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="hero-badge"><i class="fas fa-right-left"></i> Bekler İçin</span>
+                <h1>Kanattan <span class="gradient-text">Fark Yarat</span>,<br>İki Yönüyle <span class="gradient-text">Oyna</span></h1>
+                <p class="hero-desc">
+                    Bek, kanat çizgisinin hem savunmacısı hem hücumcusudur.
+                    Bindirmeler, ortalar, ikili mücadeleler ve geri koşular.
+                    Dünyanın en iyi beklerinden öğren, kanat oyununu geliştir.
+                </p>
+                <div class="hero-subnav">
+                    <a href="#highlights" class="subnav-link">🎬 Highlights</a>
+                    <a href="#training" class="subnav-link">🧠 AI Antrenman</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-wrapper gk-wrapper">
+                    <img src="alejandro-balde.webp" alt="Alejandro Balde" class="player-img gk-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="player-img-fallback" style="display:none;">
+                        <span>⇄</span>
+                        <p>alejandro-balde.webp<br>buraya ekle</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PRO HIGHLIGHTS
+         ============================================ -->
+    <section class="highlights" id="highlights">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Highlights</span>
+                <h2>Profesyonel Beklerden <span class="accent">Öğren</span></h2>
+                <p class="section-desc">
+                    Dünyanın en iyi beklerinin bindirmelerini, ortalarını ve ikili
+                    mücadelelerini incele. Kanat oyununu videolarla geliştir.
+                </p>
+            </div>
+
+            <!-- Highlights Kutu -->
+            <div class="highlights-box">
+                <!-- Tab'lar -->
+                <div class="highlight-tabs">
+                    <button class="tab-btn active" data-tab="right">🟢 Sağ Ayak</button>
+                    <button class="tab-btn" data-tab="left">🔵 Sol Ayak</button>
+                    <button class="tab-btn" data-tab="all">⚔️ Hepsi</button>
+                </div>
+
+                <!-- Sağ Ayak İçeriği -->
+                <div class="tab-content active" id="tab-right">
+                    <div class="video-scroll">
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/05Ql25C-HZs" title="Achraf Hakimi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Achraf Hakimi</h3>
+                                <p>Sağ ayak, PSG, dünyanın en hücumcu beklerinden biri.</p>
+                                <button class="btn btn-analyze" data-fullback="Achraf Hakimi">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/83rsA9tsox4" title="Reece James" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Reece James</h3>
+                                <p>Sağ ayak, Chelsea, mükemmel orta ve duran top ustası.</p>
+                                <button class="btn btn-analyze" data-fullback="Reece James">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/985mCs8zL9k" title="Jules Kounde" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Jules Kounde</h3>
+                                <p>Sağ ayak, Barcelona, denge ve pozisyon bilgisi.</p>
+                                <button class="btn btn-analyze" data-fullback="Jules Kounde">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/ShRM__6T2VI" title="Denzel Dumfries" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Denzel Dumfries</h3>
+                                <p>Sağ ayak, Inter, fiziksel güç ve hücum bindirmeleri.</p>
+                                <button class="btn btn-analyze" data-fullback="Denzel Dumfries">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/htWF12Wem-0" title="Matheus Nunes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Matheus Nunes</h3>
+                                <p>Sağ ayak, süratli ve çift yönlü koşu gücü.</p>
+                                <button class="btn btn-analyze" data-fullback="Matheus Nunes">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sol Ayak İçeriği -->
+                <div class="tab-content" id="tab-left">
+                    <div class="video-scroll">
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/AXHpiodYVW8" title="Josko Gvardiol" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Josko Gvardiol</h3>
+                                <p>Sol ayak, Man City, ofansif sol bek ve bitiricilik.</p>
+                                <button class="btn btn-analyze" data-fullback="Josko Gvardiol">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/LMMCb_KNFB0" title="Alejandro Grimaldo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Alejandro Grimaldo</h3>
+                                <p>Sol ayak, Bayer Leverkusen, orta ve oyun kurma uzmanı.</p>
+                                <button class="btn btn-analyze" data-fullback="Alejandro Grimaldo">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/j8HxWhqLKtg" title="Nuno Mendes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Nuno Mendes</h3>
+                                <p>Sol ayak, PSG, sürat ve 1v1 savunma.</p>
+                                <button class="btn btn-analyze" data-fullback="Nuno Mendes">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/AFxZbBcc9eU" title="Alejandro Balde" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Alejandro Balde</h3>
+                                <p>Sol ayak, Barcelona, patlayıcı sürat ve çizgi bindirmesi.</p>
+                                <button class="btn btn-analyze" data-fullback="Alejandro Balde">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/QWVG_7YpuY8" title="Riccardo Calafiori" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Riccardo Calafiori</h3>
+                                <p>Sol ayak, Arsenal, top çıkarma ve öne çıkma cesareti.</p>
+                                <button class="btn btn-analyze" data-fullback="Riccardo Calafiori">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hepsi İçeriği -->
+                <div class="tab-content" id="tab-all">
+                    <div class="video-scroll">
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/05Ql25C-HZs" title="Achraf Hakimi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Achraf Hakimi</h3>
+                                <p>Sağ ayak — PSG, hücumcu bebek.</p>
+                                <button class="btn btn-analyze" data-fullback="Achraf Hakimi">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/83rsA9tsox4" title="Reece James" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Reece James</h3>
+                                <p>Sağ ayak — Chelsea, orta ustası.</p>
+                                <button class="btn btn-analyze" data-fullback="Reece James">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/985mCs8zL9k" title="Jules Kounde" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Jules Kounde</h3>
+                                <p>Sağ ayak — Barcelona, pozisyon bilgisi.</p>
+                                <button class="btn btn-analyze" data-fullback="Jules Kounde">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/ShRM__6T2VI" title="Denzel Dumfries" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Denzel Dumfries</h3>
+                                <p>Sağ ayak — Inter, fiziksel bindirme.</p>
+                                <button class="btn btn-analyze" data-fullback="Denzel Dumfries">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/htWF12Wem-0" title="Matheus Nunes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Matheus Nunes</h3>
+                                <p>Sağ ayak — süratli çift yönlü bek.</p>
+                                <button class="btn btn-analyze" data-fullback="Matheus Nunes">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/AXHpiodYVW8" title="Josko Gvardiol" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Josko Gvardiol</h3>
+                                <p>Sol ayak — Man City, ofansif sol bek.</p>
+                                <button class="btn btn-analyze" data-fullback="Josko Gvardiol">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/LMMCb_KNFB0" title="Alejandro Grimaldo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Alejandro Grimaldo</h3>
+                                <p>Sol ayak — Leverkusen, orta uzmanı.</p>
+                                <button class="btn btn-analyze" data-fullback="Alejandro Grimaldo">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/j8HxWhqLKtg" title="Nuno Mendes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Nuno Mendes</h3>
+                                <p>Sol ayak — PSG, sürat ve 1v1.</p>
+                                <button class="btn btn-analyze" data-fullback="Nuno Mendes">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/AFxZbBcc9eU" title="Alejandro Balde" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Alejandro Balde</h3>
+                                <p>Sol ayak — Barcelona, patlayıcı sürat.</p>
+                                <button class="btn btn-analyze" data-fullback="Alejandro Balde">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumb">
+                                <iframe src="https://www.youtube.com/embed/QWVG_7YpuY8" title="Riccardo Calafiori" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="video-info">
+                                <h3>Riccardo Calafiori</h3>
+                                <p>Sol ayak — Arsenal, top çıkarma.</p>
+                                <button class="btn btn-analyze" data-fullback="Riccardo Calafiori">⇄ Bu Videodaki Beki Analiz Et</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         AKILLI ANTRENMAN — BEKLER
+         ============================================ -->
+    <section class="training" id="training">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">AI Training</span>
+                <h2>Akıllı <span class="accent">Bek Antrenman Planı</span></h2>
+                <p class="section-desc">
+                    Sana özel program oluşturmak için 5 kısa soru cevapla.
+                    AI asistanın kanat oyununu analiz etsin, haftalık bek programını hazırlasın.
+                </p>
+            </div>
+
+            <!-- SORU WIZARD -->
+            <div class="ai-wizard" id="fbWizard">
+                <div class="wizard-progress">
+                    <div class="progress-bar" id="fbProgressBar"></div>
+                </div>
+
+                <!-- Soru 1 -->
+                <div class="wizard-step active" data-step="1">
+                    <div class="step-number">1 / 5</div>
+                    <h3>En çok hangi alanı geliştirmek istiyorsun? <em>(birden fazla seçebilirsin)</em></h3>
+                    <div class="option-grid">
+                        <button class="option-btn" data-value="overlap">🚀 Bindirme & Kanat Geçişi</button>
+                        <button class="option-btn" data-value="crossing">🎯 Orta Kalitesi</button>
+                        <button class="option-btn" data-value="onevone">🛡️ 1v1 Savunma</button>
+                        <button class="option-btn" data-value="recovery">🏃 Geri Koşu & Geçiş</button>
+                        <button class="option-btn" data-value="distribution">⚽ Pas & Oyun Kurma</button>
+                        <button class="btn btn-primary wizard-next" id="fbStep1Next" disabled>Devam Et →</button>
+                    </div>
+                </div>
+
+                <!-- Soru 2 -->
+                <div class="wizard-step" data-step="2">
+                    <div class="step-number">2 / 5</div>
+                    <h3>Haftada kaç gün antrenman yapabilirsin?</h3>
+                    <div class="option-grid">
+                        <button class="option-btn" data-value="3">3 Gün</button>
+                        <button class="option-btn" data-value="4">4 Gün</button>
+                        <button class="option-btn" data-value="5">5 Gün</button>
+                        <button class="option-btn" data-value="6">6 Gün</button>
+                        <button class="btn btn-primary wizard-next" id="fbStep2Next" disabled>Devam Et →</button>
+                    </div>
+                </div>
+
+                <!-- Soru 3 -->
+                <div class="wizard-step" data-step="3">
+                    <div class="step-number">3 / 5</div>
+                    <h3>Mevcut seviyeni nasıl tanımlarsın?</h3>
+                    <div class="option-grid">
+                        <button class="option-btn" data-value="beginner">🌱 Başlangıç</button>
+                        <button class="option-btn" data-value="intermediate">🌿 Orta Seviye</button>
+                        <button class="option-btn" data-value="advanced">🌳 İleri Seviye</button>
+                        <button class="btn btn-primary wizard-next" id="fbStep3Next" disabled>Devam Et →</button>
+                    </div>
+                </div>
+
+                <!-- Soru 4 -->
+                <div class="wizard-step" data-step="4">
+                    <div class="step-number">4 / 5</div>
+                    <h3>Maçlarda en çok zorlandığın durum? <em>(birden fazla seçebilirsin)</em></h3>
+                    <div class="option-grid">
+                        <button class="option-btn" data-value="quickwinger">⚡ Hızlı kanat oyuncuları</button>
+                        <button class="option-btn" data-value="crosses">📐 Çapraz ortalar</button>
+                        <button class="option-btn" data-value="pressure">😰 Baskı altında top çıkarma</button>
+                        <button class="option-btn" data-value="counter">💨 Kontraatak & geri koşu</button>
+                        <button class="btn btn-primary wizard-next" id="fbStep4Next" disabled>Devam Et →</button>
+                    </div>
+                </div>
+
+                <!-- Soru 5 -->
+                <div class="wizard-step" data-step="5">
+                    <div class="step-number">5 / 5</div>
+                    <h3>Fiziksel durumun nasıl?</h3>
+                    <div class="option-grid">
+                        <button class="option-btn" data-value="fit">💪 Çok İyi</button>
+                        <button class="option-btn" data-value="average">⚖️ Orta</button>
+                        <button class="option-btn" data-value="needswork">🔧 Geliştirilmeli</button>
+                        <button class="btn btn-primary wizard-next" id="fbStep5Next" disabled>Devam Et →</button>
+                    </div>
+                </div>
+
+                <!-- AI Düşünme Ekranı -->
+                <div class="wizard-step" id="fbThinking">
+                    <div class="ai-avatar">🤖</div>
+                    <h3>AI Asistan bek planını hazırlıyor...</h3>
+                    <div class="typing-indicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="analyze-progress">
+                        <div class="analyze-progress-bar" id="fbThinkingProgressBar"></div>
+                    </div>
+                    <p class="ai-status" id="fbStatus">Cevapların değerlendiriliyor</p>
+                </div>
+
+                <!-- Sonuç Ekranı -->
+                <div class="wizard-step" id="fbResultStep">
+                    <div class="result-header">
+                        <div class="ai-avatar">🤖</div>
+                        <h3>Senin İçin Oluşturulan Bek Programı</h3>
+                        <p id="fbResultSummary">Analiz sonuçlarına göre haftalık planın hazır.</p>
+                    </div>
+                    <div class="result-program" id="fbResultProgram">
+                        <!-- Program buraya JS ile gelecek -->
+                    </div>
+                    <div class="wizard-restart-wrap">
+                        <button class="btn btn-secondary" id="fbRestartWizard">🔄 Baştan Başla</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TAM EKRAN: OYUNCU HİKAYELERİ
+         ============================================ -->
+    <div class="stories-overlay" id="storiesOverlay" aria-hidden="true">
+        <button class="stories-back" id="storiesBack" aria-label="Geri"><i class="fas fa-arrow-left"></i><span>Geri</span></button>
+        <button class="stories-close" id="storiesClose" aria-label="Kapat"><i class="fas fa-times"></i></button>
+        <div class="stories-container">
+            <div class="stories-header">
+                <span class="stories-icon">🏆</span>
+                <h2>Oyuncu Hikayeleri</h2>
+                <p>Bu beklerin A Takıma çıkış ve kariyer hikayeleri.</p>
+            </div>
+            <div class="stories-grid" id="storiesGrid"></div>
+        </div>
+    </div>
+
+    <!-- Oyuncu detay modalı -->
+    <div class="story-detail-modal" id="storyDetailModal" aria-hidden="true">
+        <div class="story-detail-box">
+            <button class="story-detail-back" id="storyDetailBack" aria-label="Geri"><i class="fas fa-arrow-left"></i></button>
+            <button class="story-detail-close" id="storyDetailClose" aria-label="Kapat"><i class="fas fa-times"></i></button>
+            <div class="story-detail-content" id="storyDetailContent"></div>
+        </div>
+    </div>
+
+    <!-- Tam ekran: Beslenme & Uyku -->
+    <div class="nutrition-overlay" id="nutritionOverlay" aria-hidden="true">
+        <button class="stories-back" id="nutritionBack" aria-label="Geri"><i class="fas fa-arrow-left"></i><span>Geri</span></button>
+        <button class="stories-close" id="nutritionClose" aria-label="Kapat"><i class="fas fa-times"></i></button>
+        <div class="nutrition-container">
+            <div class="stories-header">
+                <span class="stories-icon"><i class="fas fa-sun nutrition-sun"></i></span>
+                <h2>Beslenme & Uyku</h2>
+                <p>Beklerin işi zor: çizgiye inip koşuyorsun, geri koşuyorsun, tekrar patlıyorsun. Bu yoğun tempoyu beslenme ve uykuyla koru.</p>
+            </div>
+
+            <!-- Özet kartlar -->
+            <div class="nutrition-cards">
+                <a href="#nutr-fit" class="nutrition-tile"><span class="nutrition-tile-icon"><i class="fas fa-dumbbell"></i></span><h4>Fit Kalmak İçin</h4><p>Bek vücuduna uygun beslenme</p></a>
+                <a href="#nutr-carbs" class="nutrition-tile"><span class="nutrition-tile-icon"><i class="fas fa-wheat-awn"></i></span><h4>Karbonhidrat & Koşu</h4><p>Kanat koşularının yakıtı</p></a>
+                <a href="#nutr-protein" class="nutrition-tile"><span class="nutrition-tile-icon"><i class="fas fa-drumstick-bite"></i></span><h4>Proteinler</h4><p>Kas yenilenmesi için</p></a>
+                <a href="#nutr-before" class="nutrition-tile"><span class="nutrition-tile-icon"><i class="fas fa-hourglass-start"></i></span><h4>Maçtan Önce</h4><p>Enerjini doğru al</p></a>
+                <a href="#nutr-after" class="nutrition-tile"><span class="nutrition-tile-icon"><i class="fas fa-bolt"></i></span><h4>Maçtan Sonra</h4><p>Toparlanma yakıtı</p></a>
+                <a href="#nutr-hydra" class="nutrition-tile"><span class="nutrition-tile-icon"><i class="fas fa-droplet"></i></span><h4>Hidrasyon</h4><p>Su ve elektrolit</p></a>
+                <a href="#nutr-sleep" class="nutrition-tile"><span class="nutrition-tile-icon"><i class="fas fa-moon"></i></span><h4>Uyku & Toparlanma</h4><p>Bekler için kritik 7-9 saat</p></a>
+                <a href="#nutr-avoid" class="nutrition-tile"><span class="nutrition-tile-icon"><i class="fas fa-ban"></i></span><h4>Sakınılacaklar</h4><p>Kaçınman gerekenler</p></a>
+            </div>
+
+            <!-- Detaylı bölümler -->
+            <div class="nutrition-sections">
+
+                <div class="nutrition-block" id="nutr-fit">
+                    <h3>💪 Bek Vücudu İçin Fit Kalmak</h3>
+                    <ul>
+                        <li><strong>Dengeli tabak:</strong> Her öğünde protein + kompleks karbonhidrat + sebze bulundur. Bekler hem güç hem dayanıklılık ister.</li>
+                        <li><strong>3 ana, 2 ara öğün:</strong> Gün boyu kan şekerini dengede tut; antrenman aralarında açlık enerjini düşürmesin.</li>
+                        <li><strong>Yağsız protein ağırlığı:</strong> Tavuk, hindi, balık, yumurta ve süt ürünleri kas kütleni korur.</li>
+                        <li><strong>Lifli beslen:</strong> Tam tahıl, baklagil ve sebzelerle sindirimi destekle; ağırlık hissetme.</li>
+                        <li><strong>Hazır gıdayı azalt:</strong> Paketli atıştırmalıklar yerine meyve, kuruyemiş ve yoğurdu tercih et.</li>
+                    </ul>
+                </div>
+
+                <div class="nutrition-block" id="nutr-carbs">
+                    <h3>🌾 Karbonhidrat: Kanat Koşularının Yakıtı</h3>
+                    <ul>
+                        <li><strong>Neden önemli:</strong> Bek pozisyonunda maç başına 10-12 km koşarsın; bu enerji karbonhidrattan gelir (glikojen).</li>
+                        <li><strong>Kompleks kaynaklar:</strong> Yulaf, bulgur, esmer pirinç, tam buğday ekmeği ve patates günlük enerji depolarını doldur.</li>
+                        <li><strong>Antrenman/maç günü:</strong> Ana yemeklerde karbonhidrat porsiyonlarını biraz artır (pilav/makarna/yulaf).</li>
+                        <li><strong>Tatil/izlenim günü de dolu:</strong> Dinlenme gününde bile hafif karbonhidrat al ki ertesi gün dip yapma.</li>
+                        <li><strong>Şekerli gıdalara dikkat:</strong> Basit şeker enerjiyi hızla verir ama çabuk düşürür; kompleks karbonhidrat önde tut.</li>
+                    </ul>
+                </div>
+
+                <div class="nutrition-block" id="nutr-protein">
+                    <h3>🍗 Temel Protein Kaynakları</h3>
+                    <ul>
+                        <li><strong>Tavuk & hindi göğsü:</strong> Yağ oranı düşük, kas yenilenmesi için en pratik protein.</li>
+                        <li><strong>Yumurta:</strong> Özellikle kahvaltıda; yüksek biyoyararlanımlı protein.</li>
+                        <li><strong>Balık:</strong> Somon ve ton gibi yağlı balıklar protein + omega-3 sunar (eklem ve toparlanma dostu).</li>
+                        <li><strong>Süt, yoğurt ve lor peyniri:</strong> Protein + kalsiyum; kemik ve kas gücüne katkı.</li>
+                        <li><strong>Baklagiller:</strong> Mercimek, nohut ve fasulye; bitkisel protein ve lif kaynağı.</li>
+                        <li><strong>Günlük hedef:</strong> Genç bir bek için vücut ağırlığının kilogramı başına 1,6-2 g protein önerilir.</li>
+                    </ul>
+                </div>
+
+                <div class="nutrition-block" id="nutr-before">
+                    <h3>⏰ Maçtan & Antrenman Önce</h3>
+                    <ul>
+                        <li><strong>2-3 saat önce:</strong> Yulaf, pilav, makarna gibi kompleks karbonhidratlar + yağsız protein yedek deposunu doldurur.</li>
+                        <li><strong>30-45 dakika önce:</strong> Muz veya içecek gibi hafif ve hızlı karbonhidrat tüket.</li>
+                        <li><strong>Yeni yiyecek deneme!</strong> Maç günü daha önce denemediğin hiçbir gıdayı test etme.</li>
+                        <li><strong>Kafeini ölçülü kullan:</strong> İhtiyacın varsa maçtan 45-60 dk önce küçük bir kahve alabilirsin.</li>
+                    </ul>
+                </div>
+
+                <div class="nutrition-block" id="nutr-after">
+                    <h3>🔋 Maçtan & Antrenman Sonra</h3>
+                    <ul>
+                        <li><strong>30-60 dk penceresi:</strong> Bitirir bitirmez protein + karbonhidrat al; uzun koşular kas glikojenini boşaltır, bu aralıkta doldur.</li>
+                        <li><strong>Pratik kombinasyon:</strong> Pilav + tavuk, muz + yoğurt + fıstık ezmesi, süt + yulaf iyi seçenekler.</li>
+                        <li><strong>Elektrolit desteği:</strong> Terle kaybettiğin sodyum ve potasyumu spor içeceği veya tuzlu atıştırmalıkla geri kazan.</li>
+                        <li><strong>Öğünü geciktirme:</strong> Soyunma odasından çıkar çıkmaz bir atıştırma, ana öğünü evde tamamla.</li>
+                        <li><strong>Gergin kaslara masaj:</strong> Uyluk ve bacak kaslarını ovalamak toparlanmayı hızlandırır.</li>
+                    </ul>
+                </div>
+
+                <div class="nutrition-block" id="nutr-hydra">
+                    <h3>💧 Sıvı & Elektrolit</h3>
+                    <ul>
+                        <li><strong>Günlük hedef:</strong> Gün içinde en az 2-3 litre su hedefle; hava sıcaksa artır.</li>
+                        <li><strong>Maç öncesi:</strong> Isınmadan 2 saat önce 400-600 ml su iç.</li>
+                        <li><strong>Sırasında:</strong> Fırsat buldukça küçük yudumlar al; susamayı bekleme.</li>
+                        <li><strong>İdrar rengi kontrolü:</strong> Açık sarı olmalı; koyu görünüyorsa su içmen gerekir.</li>
+                        <li><strong>Kafein ve alkol dikkat:</strong> İkisi de vücuttan su attırır; maç günü alkole kesinlikle hayır.</li>
+                    </ul>
+                </div>
+
+                <div class="nutrition-block" id="nutr-sleep">
+                    <h3>😴 Uyku: Bekler İçin Kritik</h3>
+                    <ul>
+                        <li><strong>Neden bu kadar önemli:</strong> Bek mevkisi sürekli sprint ve geri koşu ister; uyku kas onarımı ve tepki hızını inşa eder.</li>
+                        <li><strong>7-9 saat uyku:</strong> Kas onarımı, zihinsel netlik ve reaksiyon hızı uykuda gelişir.</li>
+                        <li><strong>Düzenli saat:</strong> Hafta içi dışı aynı saatte yatıp kalk; biyolojik ritmini koru.</li>
+                        <li><strong>Karanlık ve serin oda:</strong> Uyku kalitesini artırır; oda ne kadar karanlıksa melatonin o kadar iyi çalışır.</li>
+                        <li><strong>Ekrandan uzaklaş:</strong> Telefon ve televizyonu yatmadan 1 saat önce bırak.</li>
+                        <li><strong>Gündüz şekerlemesi:</strong> 20-30 dakikayı geçmeyen kısa uyku, maç sonrası enerjini tazeleyebilir.</li>
+                    </ul>
+                </div>
+
+                <div class="nutrition-block" id="nutr-avoid">
+                    <h3>🚫 Sakınılması Gerekenler</h3>
+                    <ul>
+                        <li><strong>Fast food & kızartmalar:</strong> Ağır, yağlı ve işlenmiş; sindirimi zor, enerjiyi düşürür.</li>
+                        <li><strong>Şekerli içecekler:</strong> Kola, gazoz ve meyve suları; kan şekerini hızla oynatır.</li>
+                        <li><strong>Alkol:</strong> Uykuyu bozar, toparlanmayı yavaşlatır ve dehidrasyona yol açar.</li>
+                        <li><strong>Maçtan hemen önce ağır öğün:</strong> Mideyi yorar, erken yorulmaya sebep olur.</li>
+                        <li><strong>Abur cubur & paketli atıştırmalıklar:</strong> Boş kalori; doyurur ama besin sağlamaz.</li>
+                        <li><strong>Gece geç saatte yemek:</strong> Uyku kalitesini düşürür, sabah antrenmanına yük olur.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Tam ekran: İstatistiklerim -->
+    <div class="stats-overlay" id="statsOverlay" aria-hidden="true">
+        <button class="stories-back" id="statsBack" aria-label="Geri"><i class="fas fa-arrow-left"></i><span>Geri</span></button>
+        <button class="stories-close" id="statsClose" aria-label="Kapat"><i class="fas fa-times"></i></button>
+        <div class="stats-container">
+            <div class="stories-header">
+                <span class="stories-icon"><i class="fas fa-chart-line"></i></span>
+                <h2>İstatistiklerim</h2>
+                <p>Fiziksel verini kaydet, maç sonrası bek istatistiklerini gir. Gelişimini tek yerden takip et.</p>
+            </div>
+
+            <!-- Fiziksel özellikler -->
+            <div class="stats-section">
+                <h3>📏 Fiziksel Özellikler</h3>
+                <p class="stats-hint">Boy ve kilonu bir kez gir, sonra istediğin zaman güncelle.</p>
+                <div class="stats-physical-row">
+                    <label class="stats-field">Boy (cm)
+                        <input type="number" id="physHeight" min="120" max="230" inputmode="numeric" placeholder="Örn: 178">
+                    </label>
+                    <label class="stats-field">Kilo (kg)
+                        <input type="number" id="physWeight" min="30" max="200" inputmode="numeric" placeholder="Örn: 72">
+                    </label>
+                    <button class="stats-save-btn" id="physSaveBtn"><i class="fas fa-save"></i> Kaydet</button>
+                </div>
+                <div class="stats-physical-info" id="physInfo"></div>
+            </div>
+
+            <!-- Maç istatistikleri giriş formu (Verilerim'de tarihli görüntülenir) -->
+            <div class="stats-section">
+                <h3>⚡ Bek Maç İstatistikleri</h3>
+                <p class="stats-hint">Her maç sonrası bek istatistiklerini kaydet. Kayıtlar tarihli olarak İstatistik Verilerim sayfasında görünür.</p>
+                <div class="gk-save-row">
+                    <label class="stats-field">İkili Mücadele Kaz.
+                        <input type="number" id="fbDuel" min="0" max="50" inputmode="numeric" value="0">
+                    </label>
+                    <label class="stats-field">İsabetli Orta
+                        <input type="number" id="fbCross" min="0" max="50" inputmode="numeric" value="0">
+                    </label>
+                    <label class="stats-field">Top Çalma
+                        <input type="number" id="fbTackle" min="0" max="50" inputmode="numeric" value="0">
+                    </label>
+                    <label class="stats-field">İsabetli Pas
+                        <input type="number" id="fbPassOk" min="0" max="200" inputmode="numeric" value="0">
+                    </label>
+                    <label class="stats-field">Top Kaybı
+                        <input type="number" id="fbLoss" min="0" max="50" inputmode="numeric" value="0">
+                    </label>
+                </div>
+                <button class="stats-save-btn" id="fbSaveBtn" style="margin-top: 14px;"><i class="fas fa-save"></i> Maçı Kaydet</button>
+            </div>
+
+            <!-- Maç Notlarım -->
+            <div class="stats-section">
+                <h3>📝 Maç Notlarım</h3>
+                <p class="stats-hint">Maç sonrası kısa notlarını yaz. Notlar tarihli olarak İstatistik Verilerim sayfasında görünür.</p>
+                <div class="gk-note-form">
+                    <textarea id="fbNoteText" class="gk-note-input" rows="3" placeholder="Maç hakkında kısa not... (ör. 'Bindirmelerde etkiliydim ama geri koşularda geç kaldım')"></textarea>
+                    <button class="stats-save-btn" id="fbNoteAdd"><i class="fas fa-plus"></i> Not Ekle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tam ekran: İstatistik Verilerim -->
+    <div class="statsdata-overlay" id="fbStatsDataOverlay" aria-hidden="true">
+        <button class="stories-back" id="fbStatsDataBack" aria-label="Geri"><i class="fas fa-arrow-left"></i><span>Geri</span></button>
+        <button class="stories-close" id="fbStatsDataClose" aria-label="Kapat"><i class="fas fa-times"></i></button>
+        <div class="statsdata-container">
+            <div class="stories-header">
+                <span class="stories-icon"><i class="fas fa-database"></i></span>
+                <h2>İstatistik Verilerim</h2>
+                <p>Kaydettiğin bek istatistiklerini maç maç görüntüle, gelişimini takip et.</p>
+            </div>
+
+            <!-- Reyting Özeti (5 maça ulaşınca görünür) -->
+            <div class="gk-rating-box" id="fbRatingBox" style="display:none;">
+                <div class="gk-rating-header">
+                    <span class="gk-rating-score" id="fbRatingScore">0</span>
+                    <div class="gk-rating-label">
+                        <strong id="fbRatingTitle">Genel Reyting</strong>
+                        <small id="fbRatingSub">5 maç tamamlandı</small>
+                    </div>
+                </div>
+                <div class="gk-rating-bars" id="fbRatingBars"></div>
+                <div class="gk-ai-tips" id="fbAiTips"></div>
+            </div>
+
+            <!-- Sekme Başlıkları -->
+            <div class="fb-statsdata-tabs">
+                <button class="fb-statsdata-tab active" data-statstab="stats">⚡ Maç İstatistikleri</button>
+                <button class="fb-statsdata-tab" data-statstab="notes">📝 Notlarım</button>
+            </div>
+
+            <!-- İstatistikler Sekmesi (Maç Maç) -->
+            <div class="fb-statsdata-panel active" id="fbStatsDataStatsPanel">
+                <div class="statsdata-list" id="fbStatsDataStatsList">
+                    <!-- JS render -->
+                </div>
+            </div>
+
+            <!-- Notlarım Sekmesi (Kayıtlı Notlar) -->
+            <div class="fb-statsdata-panel" id="fbStatsDataNotesPanel">
+                <div class="statsdata-list" id="fbStatsDataNotesList">
+                    <!-- JS render -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         AI BEK ANALİZ MODAL
+         ============================================ -->
+    <div class="modal-overlay" id="fbAnalyzeModal">
+        <div class="modal analyze-modal">
+            <button class="modal-close" id="fbAnalyzeModalClose" aria-label="Kapat">✕</button>
+
+            <div class="analyze-thinking" id="fbAnalyzeThinking">
+                <div class="ai-avatar-large">🤖</div>
+                <h3>Bek Analizi Yapılıyor...</h3>
+                <div class="typing-indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <p class="ai-status" id="fbAnalyzeStatus">Videoyu inceliyorum...</p>
+                <div class="analyze-progress">
+                    <div class="analyze-progress-bar" id="fbAnalyzeProgressBar"></div>
+                </div>
+            </div>
+
+            <div class="analyze-result" id="fbAnalyzeResult" style="display:none;">
+                <div class="result-header">
+                    <div class="ai-avatar-large">⇄</div>
+                    <h3 id="fbAnalyzeTitle">Bek — Analiz Raporu</h3>
+                </div>
+                <div class="analyze-content" id="fbAnalyzeContent">
+                    <div class="analyze-section">
+                        <h4>🎯 Teknik Güçlü Yönler</h4>
+                        <p>Analiz sonuçları burada görünecek.</p>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="fbCloseAnalyzeBtn">Kapat</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         SCRIPT
+         ============================================ -->
+    <script src="script.js"></script>
+</body>
+</html>
