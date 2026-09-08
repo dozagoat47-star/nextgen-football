@@ -1361,14 +1361,26 @@ document.addEventListener('keydown', function(e) {
     function mirrorImage(src, callback) {
         const img = new Image();
         img.onload = function() {
-            const canvas = document.createElement('canvas');
-            canvas.width = img.width;
-            canvas.height = img.height;
-            const ctx = canvas.getContext('2d');
-            ctx.translate(img.width, 0);
-            ctx.scale(-1, 1);
-            ctx.drawImage(img, 0, 0);
-            callback(canvas.toDataURL('image/jpeg', 0.9));
+            try {
+                const maxDim = 1200;
+                let w = img.width, h = img.height;
+                const ratio = Math.min(1, maxDim / Math.max(w, h));
+                w = Math.round(w * ratio);
+                h = Math.round(h * ratio);
+                const canvas = document.createElement('canvas');
+                canvas.width = w;
+                canvas.height = h;
+                const ctx = canvas.getContext('2d');
+                ctx.translate(w, 0);
+                ctx.scale(-1, 1);
+                ctx.drawImage(img, 0, 0, w, h);
+                callback(canvas.toDataURL('image/jpeg', 0.9));
+            } catch (e) {
+                callback(src);
+            }
+        };
+        img.onerror = function() {
+            callback(src);
         };
         img.src = src;
     }
