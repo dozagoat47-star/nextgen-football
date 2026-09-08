@@ -84,6 +84,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
+            try {
+                if (history.pushState) {
+                    history.pushState({ section: 1 }, '', this.getAttribute('href'));
+                }
+            } catch (err) {}
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 const offsetTop = target.offsetTop - 80;
@@ -93,6 +98,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
+    });
+
+    window.addEventListener('popstate', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     // ---------- HERO STATS SAYAÇ ----------
@@ -1728,6 +1737,11 @@ document.addEventListener('keydown', function(e) {
                 const targetElem = document.querySelector(targetId);
                 if (targetElem) {
                     e.preventDefault();
+                    try {
+                        if (history.pushState) {
+                            history.pushState({ section: 1 }, '', targetId);
+                        }
+                    } catch (err) {}
                     targetElem.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
@@ -2204,6 +2218,11 @@ document.addEventListener('keydown', function(e) {
         tile.addEventListener('click', function(e) {
             e.preventDefault();
             var id = this.getAttribute('href').substring(1);
+            try {
+                if (history.pushState) {
+                    history.pushState({ section: 1 }, '', '#' + id);
+                }
+            } catch (err) {}
             var target = document.getElementById(id);
             if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
