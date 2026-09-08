@@ -4678,20 +4678,35 @@ body.videos-hidden .video-scroll {
     visibility: visible;
 }
 
+.camera-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .camera-container {
-    max-width: 480px;
+    width: 100%;
+    max-width: 440px;
     margin: 0 auto;
-    padding: 80px 20px 40px;
+    padding: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.camera-container .stories-header {
+    flex: 0 0 auto;
 }
 
 .camera-viewport {
     position: relative;
     width: 100%;
+    max-width: 360px;
+    margin: 12px auto 16px;
     border-radius: 16px;
     overflow: hidden;
     background: #000;
-    margin: 12px 0 20px;
     aspect-ratio: 3 / 4;
 }
 
@@ -4705,8 +4720,12 @@ body.videos-hidden .video-scroll {
 
 .camera-actions {
     display: flex;
+    flex-direction: column;
     gap: 12px;
     justify-content: center;
+    align-items: stretch;
+    max-width: 320px;
+    margin: 0 auto;
 }
 
 .profile-edit-container {
