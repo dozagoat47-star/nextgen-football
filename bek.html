@@ -98,11 +98,12 @@
                                 <i class="fas fa-chevron-right"></i>
                             </button>
 
-                            <!-- Bek'e özel içerikler yakında buraya gelecek -->
-                            <p style="color: rgba(226,232,240,0.6); font-size: 0.85rem; padding-top: 8px;">
-                                <i class="fas fa-right-left" style="color: var(--accent-red); margin-right: 6px;"></i>
-                                Bek için özel seçenekler yakında burada olacak.
-                            </p>
+                            <!-- Scoutlar Neye Bakar butonu -->
+                            <button class="stories-open-btn" id="scoutOpenBtn">
+                                <i class="fas fa-binoculars"></i>
+                                <span>Scoutlar Neye Bakar</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
                         </div>
 
                         <!-- Alt profil çubuğu -->
@@ -516,6 +517,98 @@
                 <p>Bu beklerin A Takıma çıkış ve kariyer hikayeleri.</p>
             </div>
             <div class="stories-grid" id="storiesGrid"></div>
+        </div>
+    </div>
+
+    <!-- Tam ekran: Scoutlar Neye Bakar -->
+    <div class="scout-overlay" id="scoutOverlay" aria-hidden="true">
+        <button class="stories-back" id="scoutBack" aria-label="Geri"><i class="fas fa-arrow-left"></i><span>Geri</span></button>
+        <button class="stories-close" id="scoutClose" aria-label="Kapat"><i class="fas fa-times"></i></button>
+        <div class="scout-container">
+            <div class="stories-header">
+                <span class="stories-icon"><i class="fas fa-binoculars"></i></span>
+                <h2>Scoutlar Beklerde Neye Bakar</h2>
+                <p>Bir scoutun kanat savunmacısında aradığı 8 alan ve seçmeye hazırlanmanın kuralları.</p>
+            </div>
+
+            <!-- Scout alanları -->
+            <div class="scout-tiles">
+                <div class="scout-tile">
+                    <div class="scout-tile-icon"><i class="fas fa-running"></i></div>
+                    <h4>Hız & Patlayıcılık</h4>
+                    <p>Bek, kanat çizgisinde en çok tekrar yapan ve en çok sprint atan oyuncudur. İlk 10-20 metredeki patlayıcılık ve geri koşu hızı ilk filtredir.</p>
+                </div>
+                <div class="scout-tile">
+                    <div class="scout-tile-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h4>Çift Yönlü Oyun / Denge</h4>
+                    <p>Scout, hücumda bindirme yapıp topu kaybettiğinde anında savunmaya dönebilen, iki yönlü koşuyu bitmeyen bekleri arar.</p>
+                </div>
+                <div class="scout-tile">
+                    <div class="scout-tile-icon"><i class="fas fa-futbol"></i></div>
+                    <h4>Ortalar & Çapraz Paslar</h4>
+                    <p>Cezaya yapılan doğru orta, ikinci direğe aşırtma ve içeri kat etme pasları; bir bek için en değerli hücum silahıdır.</p>
+                </div>
+                <div class="scout-tile">
+                    <div class="scout-tile-icon"><i class="fas fa-hand-fist"></i></div>
+                    <h4>1v1 Defans & İkili Mücadele</h4>
+                    <p>Karşındaki kanat oyuncusunu kademede yakalama, doğru anda dalma ve ikili mücadelede sonuç alabilme becerisidir. Oyuna sokmamak her şeydir.</p>
+                </div>
+                <div class="scout-tile">
+                    <div class="scout-tile-icon"><i class="fas fa-brain"></i></div>
+                    <h4>Oyun Okuma & Kademe</h4>
+                    <p>Arka boşluğa sarkan topu öngörmek, içerideki santrforu kapatmak ve doğru anda içeriden çizgiye çıkmak; pozisyon zekâsının göstergesidir.</p>
+                </div>
+                <div class="scout-tile">
+                    <div class="scout-tile-icon"><i class="fas fa-dumbbell"></i></div>
+                    <h4>Dayanıklılık & İş Yükü</h4>
+                    <p>90 dakika boyunca aynı tempoda koşabilmek, hem hücumda hem savunmada aktif kalabilmek; bek pozisyonu fiziği her an ölçülür.</p>
+                </div>
+                <div class="scout-tile">
+                    <div class="scout-tile-icon"><i class="fas fa-user-check"></i></div>
+                    <h4>İş Ahlakı & Tutum</h4>
+                    <p>Antrenmana gelişin, antrenörün direktifine uyumun ve öğrenme isteğin; çoğu zaman teknikten bile önce ölçülür.</p>
+                </div>
+                <div class="scout-tile">
+                    <div class="scout-tile-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h4>İletişim & Sorumluluk</h4>
+                    <p>Önündeki kanatla uyum kuran, gerideki stoperi bilgilendiren ve hataları üstlenen bekler scoutlarda lider izlenimi bırakır.</p>
+                </div>
+            </div>
+
+            <!-- Seçme kuralları -->
+            <div class="scout-columns">
+                <div class="scout-block scout-do">
+                    <h3><i class="fas fa-check-circle"></i> Seçmede Yapılması Gerekenler</h3>
+                    <ul>
+                        <li><strong>Isınmayı ciddiye al, erken git:</strong> Scout seni ısınmada da izler; geç gelen adaylar ilk notunu erkenden kaybeder.</li>
+                        <li><strong>İlk saniyede tempo göster:</strong> Koşu yükünü çekmek senin işin; oyuncuyu kovalayan değil kovalayan, baskı kuran bek ol.</li>
+                        <li><strong>Basit ve doğru oyna:</strong> Güvenilir ilk kontrol ve doğru pas; gösterişten çok hatasız oynayan bek aranıyor.</li>
+                        <li><strong>Topu kaybedince anında geri koş:</strong> Scout top kaybınla ilgilenmez, ondan sonra ne yaptığınla ilgilenir. Geri koşun seni vazgeçilmez yapar.</li>
+                        <li><strong>Doğru anda bindir, gedik bırakma:</strong> Hücumda zamanlama, savunmada kapalı alan; her iki yönü dengeli götür.</li>
+                        <li><strong>Takım arkadaşlarınla konuş, destek ol:</strong> Sesli iletişim ve motivasyon; tek başına oynayan değil takım oyuncusu aranıyor.</li>
+                        <li><strong>Son ana kadar çabala:</strong> Maç bitmeden karar yok; son dakikada yapılan geri koşu, skor katkısı kadar önemlidir.</li>
+                        <li><strong>Duygularını kontrol et:</strong> Aşırı sevinç ve öfke ikisi de dikkat çeker; istikrarlı hâl scoutu rahatlatır.</li>
+                    </ul>
+                </div>
+                <div class="scout-block scout-dont">
+                    <h3><i class="fas fa-times-circle"></i> Yapılmaması Gerekenler</h3>
+                    <ul>
+                        <li><strong>Arka boşluğu açıp bindirme yapma:</strong> Kaçan adamın arkasında senden büyük gedik; önce defansif güvence, sonra hücum isteği.</li>
+                        <li><strong>Gereksiz orta deneme:</strong> Tesadüfi ortalar değil, hedefe nişanlı ve zamanlaması doğru ortalar scoutu ikna eder.</li>
+                        <li><strong>Top kaybı sonrası kalakalma:</strong> Kopma anı scoutların en net not aldığı yerdir; hemen toparlan.</li>
+                        <li><strong>Görevini bırakıp topa koşma:</strong> Pozisyonunu terk eden oyuncu disiplin notu alır; takım seni olmadığın yerde aramak zorunda kalmaz.</li>
+                        <li><strong>Sakatlık numarası yapma:</strong> Abartılı acı ve oyunu yavaşlatma; scout bunu ilk seferde fark eder ve güven kaybolur.</li>
+                        <li><strong>Takım arkadaşını ya da kanat oyuncunu suçlama:</strong> Suçlayan değil düzelten ol; ses tonu her şeyi anlatır.</li>
+                        <li><strong>Geç kalma:</strong> İlk izlenim en güçlü izlenimdir; scout seni beklerken not almaya başlar.</li>
+                        <li><strong>Yorgunluğunla hırçınlaşma:</strong> Eller belde duruş ve sahaya yığılma; enerjini şikâyetle değil hareketle yönet.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="scout-note">
+                <i class="fas fa-lightbulb"></i>
+                <p><strong>Bunu bil:</strong> Beklik, dünyada en çok koşu yapan mevkidir ve scoutlar bunu bilir. Çoğu takım bekini "oyunun iki yönünü de oynayabilen" oyuncu olarak arar. Ayrıca scout nadiren tek maçla karar verir; seni 2-3 maç izleyip notlarını birleştirir. Soyunma odası davranışı ve antrenman disiplini de dosyana işlenir.</p>
+            </div>
         </div>
     </div>
 
