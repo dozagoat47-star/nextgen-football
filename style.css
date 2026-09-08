@@ -4728,6 +4728,13 @@ body.videos-hidden .video-scroll {
     margin: 0 auto;
 }
 
+.camera-hint {
+    margin: 4px auto 0;
+    font-size: 0.82rem;
+    color: #9ca3af;
+    max-width: 320px;
+}
+
 .profile-edit-container {
     max-width: 480px;
     margin: 0 auto;
