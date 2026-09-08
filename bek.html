@@ -1047,6 +1047,129 @@
         </div>
     </div>
 
+    <!-- Tam ekran: Profil Düzenle -->
+    <div class="profile-edit-overlay" id="profileEditOverlay" aria-hidden="true">
+        <button class="stories-back" id="profileEditBack" aria-label="Geri"><i class="fas fa-arrow-left"></i><span>Geri</span></button>
+        <button class="stories-close" id="profileEditClose" aria-label="Kapat"><i class="fas fa-times"></i></button>
+        <div class="profile-edit-container">
+            <div class="stories-header">
+                <span class="stories-icon"><i class="fas fa-user-edit"></i></span>
+                <h2>Profil Düzenle</h2>
+                <p>Profil fotoğrafını ve ismini güncelle. Değişiklikler cihazında saklanır.</p>
+            </div>
+
+            <div class="profile-edit-avatar">
+                <div class="profile-edit-avatar-preview" id="profileEditAvatarPreview">👤</div>
+                <span class="profile-edit-avatar-hint">Profil fotoğrafın</span>
+            </div>
+
+            <div class="profile-edit-field">
+                <label for="profileEditName">İsim</label>
+                <input type="text" id="profileEditName" class="auth-input" placeholder="Kullanıcı adın" maxlength="30">
+            </div>
+
+            <div class="profile-edit-actions">
+                <button class="btn btn-primary profile-edit-btn profile-edit-file-btn" id="profileEditFileBtn">
+                    <i class="fas fa-file-image"></i> Dosya Seç
+                </button>
+                <button class="btn btn-primary profile-edit-btn profile-edit-touch-btn" id="profileEditGalleryBtn">
+                    <i class="fas fa-images"></i> Galeri
+                </button>
+                <button class="btn btn-primary profile-edit-btn profile-edit-touch-btn" id="profileEditCameraBtn">
+                    <i class="fas fa-camera"></i> Kamera
+                </button>
+                <input type="file" id="profileEditFile" accept="image/*" style="display:none;">
+                <input type="file" id="profileEditCameraFile" accept="image/*" capture="environment" style="display:none;">
+            </div>
+
+            <div class="profile-edit-info" id="profileEditInfo"></div>
+            <p class="profile-edit-note"><i class="fas fa-info-circle"></i> Telefon/tablette "Galeri" ve "Kamera" seçenekleri görünür. Fotoğraf cihazında saklanır, sunucuya yüklenmez.</p>
+        </div>
+    </div>
+
+    <!-- Kamera: Canlı Önizleme -->
+    <div class="camera-overlay" id="cameraOverlay" aria-hidden="true">
+        <button class="stories-close" id="cameraClose" aria-label="Kapat"><i class="fas fa-times"></i></button>
+        <div class="camera-container">
+            <div class="stories-header">
+                <span class="stories-icon"><i class="fas fa-camera"></i></span>
+                <h2>Fotoğraf Çek</h2>
+                <p>Kendini kareye yerleştir, ardından Yakala'ya bas.</p>
+            </div>
+            <p class="camera-hint"><i class="fas fa-hand-pointer"></i> Alta doğru kaydırarak Yakala butonunu görebilirsin.</p>
+            <div class="camera-viewport">
+                <video id="cameraVideo" autoplay playsinline muted></video>
+            </div>
+            <div class="camera-actions">
+                <button class="btn btn-primary" id="cameraCaptureBtn"><i class="fas fa-camera"></i> Yakala</button>
+                <button class="btn" id="cameraCancelBtn"><i class="fas fa-times"></i> İptal</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tam ekran: Ayarlar -->
+    <div class="settings-overlay" id="settingsOverlay" aria-hidden="true">
+        <button class="stories-back" id="settingsBack" aria-label="Geri"><i class="fas fa-arrow-left"></i><span>Geri</span></button>
+        <button class="stories-close" id="settingsClose" aria-label="Kapat"><i class="fas fa-times"></i></button>
+        <div class="settings-container">
+            <div class="stories-header">
+                <span class="stories-icon"><i class="fas fa-cog"></i></span>
+                <h2>Ayarlar</h2>
+                <p>Mevkini değiştir, geri bildirim gönder ve hesabını yönet.</p>
+            </div>
+
+            <div class="settings-group">
+                <button class="settings-item" id="settingsChangePosition">
+                    <span class="settings-item-icon"><i class="fas fa-arrows-rotate"></i></span>
+                    <span class="settings-item-text">
+                        <strong>Mevkini Değiştir</strong>
+                        <small>Kaleci, Stoper ve diğer mevkiler arasından seç</small>
+                    </span>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <button class="settings-item" id="settingsFeedbackBtn">
+                    <span class="settings-item-icon"><i class="fas fa-comment-dots"></i></span>
+                    <span class="settings-item-text">
+                        <strong>Geri Bildirim Gönder</strong>
+                        <small>Beğenmediğin veya eksik bulduğun yerleri bize yaz</small>
+                    </span>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <button class="settings-item settings-danger" id="settingsLogout">
+                    <span class="settings-item-icon"><i class="fas fa-sign-out-alt"></i></span>
+                    <span class="settings-item-text">
+                        <strong>Çıkış Yap</strong>
+                        <small>Hesabından çık ve giriş yapma ekranına dön</small>
+                    </span>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="settings-about">
+                <h3><i class="fas fa-info-circle"></i> Hakkında</h3>
+                <p><strong>NextGen Football</strong> — genç yeteneklerin gelişimini destekleyen pratik araçlar. Bek sayfası; AI antrenman planı, scout rehberi ve çıkış yolculuğu içerir.</p>
+                <p><strong>Sürüm:</strong> 1.0.0</p>
+            </div>
+
+            <div class="settings-privacy">
+                <h3><i class="fas fa-shield-halved"></i> Veri &amp; Gizlilik</h3>
+                <p>Profil fotoğrafın, ismin, antrenman günlüğün ve serin <strong>yalnızca cihazında</strong> saklanır (tarayıcı yerel depolama). Geri bildirim ve kayıt bilgileri sunucuya iletilir. Verilerin üçüncü kişilerle paylaşılmaz.</p>
+            </div>
+
+            <!-- Geri Bildirim alt ekranı -->
+            <div class="settings-feedback-panel" id="settingsFeedbackPanel" style="display:none;">
+                <h3>Geri Bildirim</h3>
+                <p class="settings-feedback-hint">Uygulamada beğenmediğin, eksik bulduğun veya geliştirilmesini istediğin yerleri yaz.</p>
+                <textarea class="settings-feedback-input" id="settingsFeedbackText" rows="5" placeholder="Yorumun... (ör. 'AI planı daha kısa olsun', 'yeni bölümler ekleyin'...)"></textarea>
+                <button class="btn btn-primary btn-full" id="settingsFeedbackSend"><i class="fas fa-paper-plane"></i> Gönder</button>
+                <p class="settings-feedback-status" id="settingsFeedbackStatus"></p>
+                <button class="settings-feedback-back" id="settingsFeedbackBack"><i class="fas fa-arrow-left"></i> Geri</button>
+            </div>
+        </div>
+    </div>
+
     <!-- ============================================
          SCRIPT
          ============================================ -->
