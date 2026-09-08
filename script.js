@@ -1338,51 +1338,16 @@ document.addEventListener('keydown', function(e) {
         if (storyPanel) openStoryPanel();
     }
 
-    function handleAvatarFile(file, mirror) {
+    function handleAvatarFile(file) {
         if (!file || !file.type || file.type.indexOf('image/') !== 0) return;
         const reader = new FileReader();
         reader.onload = function() {
             const dataUrl = reader.result;
-            if (mirror) {
-                mirrorImage(dataUrl, function(mirroredUrl) {
-                    localStorage.setItem(PROFILE_AVATAR_KEY, mirroredUrl);
-                    setProfileAvatar(mirroredUrl);
-                    if (profileEditInfo) profileEditInfo.textContent = '✓ Fotoğraf güncellendi';
-                });
-                return;
-            }
             localStorage.setItem(PROFILE_AVATAR_KEY, dataUrl);
             setProfileAvatar(dataUrl);
             if (profileEditInfo) profileEditInfo.textContent = '✓ Fotoğraf güncellendi';
         };
         reader.readAsDataURL(file);
-    }
-
-    function mirrorImage(src, callback) {
-        const img = new Image();
-        img.onload = function() {
-            try {
-                const maxDim = 1200;
-                let w = img.width, h = img.height;
-                const ratio = Math.min(1, maxDim / Math.max(w, h));
-                w = Math.round(w * ratio);
-                h = Math.round(h * ratio);
-                const canvas = document.createElement('canvas');
-                canvas.width = w;
-                canvas.height = h;
-                const ctx = canvas.getContext('2d');
-                ctx.translate(w, 0);
-                ctx.scale(-1, 1);
-                ctx.drawImage(img, 0, 0, w, h);
-                callback(canvas.toDataURL('image/jpeg', 0.9));
-            } catch (e) {
-                callback(src);
-            }
-        };
-        img.onerror = function() {
-            callback(src);
-        };
-        img.src = src;
     }
 
     function saveProfileName() {
@@ -1423,23 +1388,96 @@ document.addEventListener('keydown', function(e) {
         });
     }
 
-    if (profileEditCameraBtn && profileEditCameraFile) {
+    const cameraOverlay = document.getElementById('cameraOverlay');
+    const cameraVideo = document.getElementById('cameraVideo');
+    const cameraCaptureBtn = document.getElementById('cameraCaptureBtn');
+    const cameraCancelBtn = document.getElementById('cameraCancelBtn');
+    const cameraClose = document.getElementById('cameraClose');
+    let cameraStream = null;
+
+    function openCamera() {
+        if (!cameraVideo || !cameraOverlay) return;
+        cameraOverlay.classList.add('active');
+        cameraOverlay.setAttribute('aria-hidden', 'false');
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 720 } }, audio: false })
+                .then(function(stream) {
+                    cameraStream = stream;
+                    cameraVideo.srcObject = stream;
+                    document.body.classList.add('nav-hidden', 'videos-hidden');
+                })
+                .catch(function() {
+                    if (profileEditInfo) profileEditInfo.textContent = 'Kamera açılamadı. Galeri veya Dosya Seç kullan.';
+                    closeCamera();
+                });
+        } else {
+            if (profileEditInfo) profileEditInfo.textContent = 'Bu tarayıcı kamerayı desteklemiyor. Galeri veya Dosya Seç kullan.';
+            closeCamera();
+        }
+    }
+
+    function capturePhoto() {
+        if (!cameraVideo || !cameraStream) return;
+        const w = cameraVideo.videoWidth || 1280;
+        const h = cameraVideo.videoHeight || 720;
+        const canvas = document.createElement('canvas');
+        canvas.width = w;
+        canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        ctx.translate(w, 0);
+        ctx.scale(-1, 1);
+        ctx.drawImage(cameraVideo, 0, 0, w, h);
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.9);
+        localStorage.setItem(PROFILE_AVATAR_KEY, dataUrl);
+        setProfileAvatar(dataUrl);
+        if (profileEditInfo) profileEditInfo.textContent = '✓ Fotoğraf güncellendi';
+        closeCamera();
+    }
+
+    function closeCamera() {
+        if (cameraStream) {
+            cameraStream.getTracks().forEach(function(t) { t.stop(); });
+            cameraStream = null;
+        }
+        if (cameraVideo) cameraVideo.srcObject = null;
+        if (cameraOverlay) {
+            cameraOverlay.classList.remove('active');
+            cameraOverlay.setAttribute('aria-hidden', 'true');
+        }
+        document.body.classList.remove('nav-hidden', 'videos-hidden');
+    }
+
+    if (profileEditCameraBtn) {
         profileEditCameraBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            profileEditCameraFile.click();
+            openCamera();
+        });
+    }
+
+    if (cameraCaptureBtn) {
+        cameraCaptureBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            capturePhoto();
+        });
+    }
+
+    if (cameraCancelBtn) {
+        cameraCancelBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeCamera();
+        });
+    }
+
+    if (cameraClose) {
+        cameraClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeCamera();
         });
     }
 
     if (profileEditFile) {
         profileEditFile.addEventListener('change', function() {
             if (this.files && this.files[0]) handleAvatarFile(this.files[0]);
-            this.value = '';
-        });
-    }
-
-    if (profileEditCameraFile) {
-        profileEditCameraFile.addEventListener('change', function() {
-            if (this.files && this.files[0]) handleAvatarFile(this.files[0], true);
             this.value = '';
         });
     }

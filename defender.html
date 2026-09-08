@@ -692,6 +692,25 @@
                         </div>
                     </div>
 
+                    <!-- Kamera: Canlı Önizleme -->
+                    <div class="camera-overlay" id="cameraOverlay" aria-hidden="true">
+                        <button class="stories-close" id="cameraClose" aria-label="Kapat"><i class="fas fa-times"></i></button>
+                        <div class="camera-container">
+                            <div class="stories-header">
+                                <span class="stories-icon"><i class="fas fa-camera"></i></span>
+                                <h2>Fotoğraf Çek</h2>
+                                <p>Kendini kareye yerleştir, ardından Yakala'ya bas.</p>
+                            </div>
+                            <div class="camera-viewport">
+                                <video id="cameraVideo" autoplay playsinline muted></video>
+                            </div>
+                            <div class="camera-actions">
+                                <button class="btn btn-primary" id="cameraCaptureBtn"><i class="fas fa-camera"></i> Yakala</button>
+                                <button class="btn" id="cameraCancelBtn"><i class="fas fa-times"></i> İptal</button>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Tam ekran: Ayarlar -->
                     <div class="settings-overlay" id="settingsOverlay" aria-hidden="true">
                         <button class="stories-back" id="settingsBack" aria-label="Geri"><i class="fas fa-arrow-left"></i><span>Geri</span></button>

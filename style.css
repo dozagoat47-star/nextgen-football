@@ -4658,6 +4658,57 @@ body.videos-hidden .video-scroll {
     visibility: visible;
 }
 
+.camera-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: #030712;
+    z-index: 21000;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.camera-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.camera-container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 80px 20px 40px;
+    text-align: center;
+}
+
+.camera-viewport {
+    position: relative;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    margin: 12px 0 20px;
+    aspect-ratio: 3 / 4;
+}
+
+.camera-viewport video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+    display: block;
+}
+
+.camera-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
 .profile-edit-container {
     max-width: 480px;
     margin: 0 auto;
