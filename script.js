@@ -1404,8 +1404,37 @@ document.addEventListener('keydown', function(e) {
     const cameraClose = document.getElementById('cameraClose');
     let cameraStream = null;
 
+    function enterFullscreen() {
+        var el = document.documentElement;
+        if (el.requestFullscreen) {
+            if (!document.fullscreenElement) el.requestFullscreen().catch(function(){});
+        } else if (el.webkitRequestFullscreen) {
+            if (!document.webkitFullscreenElement) el.webkitRequestFullscreen();
+        } else if (el.mozRequestFullScreen) {
+            if (!document.mozFullScreenElement) el.mozRequestFullScreen();
+        }
+    }
+
+    function exitFullscreen() {
+        if (document.exitFullscreen) {
+            if (document.fullscreenElement) document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            if (document.webkitFullscreenElement) document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            if (document.mozFullScreenElement) document.mozCancelFullScreen();
+        }
+    }
+
+    document.addEventListener('touchend', function() {
+        enterFullscreen();
+    });
+    document.addEventListener('click', function() {
+        enterFullscreen();
+    });
+
     function openCamera() {
         if (!cameraVideo || !cameraOverlay) return;
+        enterFullscreen();
         cameraOverlay.classList.add('active');
         cameraOverlay.setAttribute('aria-hidden', 'false');
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
