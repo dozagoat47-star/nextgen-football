@@ -104,6 +104,13 @@
                                 <span>Scoutlar Neye Bakar</span>
                                 <i class="fas fa-chevron-right"></i>
                             </button>
+
+                            <!-- A Takıma Çıkış Yolculuğu butonu -->
+                            <button class="stories-open-btn" id="journeyOpenBtn">
+                                <i class="fas fa-rocket"></i>
+                                <span>A Takıma Çıkış Yolculuğu</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
                         </div>
 
                         <!-- Alt profil çubuğu -->
@@ -608,6 +615,159 @@
             <div class="scout-note">
                 <i class="fas fa-lightbulb"></i>
                 <p><strong>Bunu bil:</strong> Beklik, dünyada en çok koşu yapan mevkidir ve scoutlar bunu bilir. Çoğu takım bekini "oyunun iki yönünü de oynayabilen" oyuncu olarak arar. Ayrıca scout nadiren tek maçla karar verir; seni 2-3 maç izleyip notlarını birleştirir. Soyunma odası davranışı ve antrenman disiplini de dosyana işlenir.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tam ekran: A Takıma Çıkış Yolculuğu -->
+    <div class="journey-overlay" id="journeyOverlay" aria-hidden="true">
+        <button class="stories-back" id="journeyBack" aria-label="Geri"><i class="fas fa-arrow-left"></i><span>Geri</span></button>
+        <button class="stories-close" id="journeyClose" aria-label="Kapat"><i class="fas fa-times"></i></button>
+        <div class="journey-container">
+            <div class="stories-header">
+                <span class="stories-icon"><i class="fas fa-rocket"></i></span>
+                <h2>A Takıma Çıkış Yolculuğu</h2>
+                <p>Altyapıdan A takıma uzanan yol kısa sürmez. En çok pes edilen durakları, sabrın yollarını ve gerçek bir hikâyeyi burada bulacaksın.</p>
+            </div>
+
+            <!-- Kritik dönemler: yol haritası -->
+            <div class="journey-timeline">
+                <div class="journey-step">
+                    <div class="journey-marker">
+                        <span class="journey-age">14-16</span>
+                        <span class="journey-mark"><i class="fas fa-shoe-prints"></i></span>
+                    </div>
+                    <div class="journey-card">
+                        <h4>Keşif Çağı <em>· "Hep geride koşuyorsun, verimli misin?"</em></h4>
+                        <p class="journey-why"><strong>Neden burada pes edilir:</strong> Beklik, herkese gösterişli gelmez; gol atan değil, koşan oyuncudur. Çevren "neden hep geri koşuyorsun" diye sorar ve yeteneğin henüz çok yeni, söylentiler çok hazırdır. Ailede spor kültürü yoksa kimse arkanda durmaz.</p>
+                        <p class="journey-how"><strong>Ne yapmalı:</strong> Bu yaşta tek görevin öğrenmek. Altyapıya girmek için değil, kendin için çalış; inanç yoksa bile antrenmanı bırakma çünkü çıkış yolculuğu burada başlar.</p>
+                    </div>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-marker">
+                        <span class="journey-age">17-18</span>
+                        <span class="journey-mark"><i class="fas fa-tools"></i></span>
+                    </div>
+                    <div class="journey-card">
+                        <h4>Altyapı Sınavı <em>· "Ya oynayamazsam?"</em></h4>
+                        <p class="journey-why"><strong>Neden burada pes edilir:</strong> İlk 11'e girememe, sağ-sol ayak rekabeti, antrenörün gözüne girememe ve arkadaşlarının öne geçtiğini görme. Bir türlü oynatılmayan genç, "bu takımda şansım yok" deyip bırakır.</p>
+                        <p class="journey-how"><strong>Ne yapmalı:</strong> Kadro kararını kontrol edemezsin, antrenman kaliteni edebilirsin. Yedekliği bitiş değil, izleme ve hazırlık dönemi say; oyuna girdiğinde en hazır olan sen ol.</p>
+                    </div>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-marker">
+                        <span class="journey-age">19-21</span>
+                        <span class="journey-mark"><i class="fas fa-door-open"></i></span>
+                    </div>
+                    <div class="journey-card">
+                        <h4>Pro Geçişi <em>· "Belirsizlik Çağı"</em></h4>
+                        <p class="journey-why"><strong>Neden burada pes edilir:</strong> Altyapı sözleşmesi biter, A takımda yer yoktur. Kiralanmalar, denemeler, "kimse beni istemiyor" hissi. Bu, kariyerin en kritik kopuş noktasıdır.</p>
+                        <p class="journey-how"><strong>Ne yapmalı:</strong> Sözleşmeye değil gelişime oyna. Bu kulüp almazsa bir lig aşağısı, bir şehir uzağı; statü değil süreklilik aranır. Gelişimini sürdürdüğün sürece kapı bir gün açılır.</p>
+                    </div>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-marker">
+                        <span class="journey-age">Her yaş</span>
+                        <span class="journey-mark"><i class="fas fa-briefcase-medical"></i></span>
+                    </div>
+                    <div class="journey-card">
+                        <h4>Sakatlık Duraksaması <em>· "Her şey bitti mi?"</em></h4>
+                        <p class="journey-why"><strong>Neden burada pes edilir:</strong> Uzun bir sakatlık, "buradan sonra bir daha oynayamam" kaygısı ve yalnızca rehabilitasyon koridorunda geçen aylar. Zihin, vücuttan daha hızlı pes eder.</p>
+                        <p class="journey-how"><strong>Ne yapmalı:</strong> Sakatlığı bir bitiş değil, yeniden başlangıç say. Adım adım dön, acele etme; bu durakta sabır, sürat kadar değerlidir. Aşağıdaki hikâyenin kahramanı tam bu durakta pes etmek üzereydi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- İnanmayanlara rağmen -->
+            <div class="journey-pride">
+                <h3><i class="fas fa-shield-halved"></i> İnanmayanlara Rağmen</h3>
+                <p class="journey-pride-lead">Aile desteği gelmiyorsa, antrenör seni daha da az oynatıyorsa ya da çevren "bırak artık" diyorsa: bu listedeki kurallar senin pusulan.</p>
+                <div class="journey-pride-cols">
+                    <div class="scout-block scout-do">
+                        <h3><i class="fas fa-check-circle"></i> Başa Çıkma Yolları</h3>
+                        <ul>
+                            <li><strong>Kendi destek ağını kur:</strong> Takım arkadaşları, antrenörler ya da çevrendeki tek bir inanan kişi bile yetişmeye yeter. Destek yoksa antrenman saati senin en sadık arkadaşın.</li>
+                            <li><strong>Kanıtını antrenmanda koy:</strong> "Kendini göster" denmesini beklemeden çalış; saha raporu, söylentiden her zaman güçlüdür.</li>
+                            <li><strong>Söylentileri değil, geri bildirimi dinle:</strong> "Senden bek olmaz" diyen duygunun değil, antrenörden aldığın somut notların peşine düş.</li>
+                            <li><strong>Kontrol edebildiğine odaklan:</strong> Uyku, beslenme, antrenmanlar, video izleme senin; kadro ve transfer kararları değil. Enerjini senin alanında harca.</li>
+                            <li><strong>Karşılaştırmayı bırak:</strong> Birinin bir yıl önce A takıma çıkması senin geç kaldığın anlamına gelmez; her yolcunun durakları farklıdır.</li>
+                        </ul>
+                    </div>
+                    <div class="scout-block scout-dont">
+                        <h3><i class="fas fa-times-circle"></i> Pes Ettiren Tuzaklar</h3>
+                        <ul>
+                            <li><strong>"Seçilmedim, demek ki kötüyüm":</strong> Ret bir sonuç değil, bir geri bildirimdir; bazen sadece yanlış kapıya vurmuşsundur.</li>
+                            <li><strong>Yakınlarıyla kavgaya tutuşmak:</strong> İnandıramıyorsan tartışma; konuş ve süreci soğukkanlılıkla anlat, çalışman zaten sözün yerine geçer.</li>
+                            <li><strong>Hızlı çıkış hikâyeleriyle kendini kıyaslama:</strong> Vitrinde parlayan genç yıldızların ardındaki yıllar görünmez; sen kendi yoluna bak.</li>
+                            <li><strong>Tek bölümden yolculuk bırakma:</strong> Bir yaşta oynayamadın diye tüm yolculuğu bitirmek, en yakın kapının önünde dururken evine dönmektir.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gerçek hikâye: Achraf Hakimi -->
+            <div class="journey-story">
+                <div class="journey-story-head">
+                    <span class="journey-story-flag"><i class="fas fa-trophy"></i></span>
+                    <div>
+                        <h3>Gerçek Hikâye: Achraf Hakimi</h3>
+                        <p>Bugün dünyanın en çok hücum eden beklerinden biri olarak anılan Hakimi'nin de tam bu yolculuğun ortasında pes etmek üzere olduğu anlar oldu.</p>
+                    </div>
+                </div>
+                <div class="journey-story-timeline">
+                    <div class="journey-story-item">
+                        <span class="journey-story-year">Madrid, 2005</span>
+                        <p><strong>Küçük yaşta ayrılık.</strong> Hakimi, daha çocukken ailesiyle Fas'tan Madrid'e göç etti. Çevresinde ona güvenen az, onu bekleyen çoktu.</p>
+                    </div>
+                    <div class="journey-story-item">
+                        <span class="journey-story-year">2016 · Real Madrid</span>
+                        <p><strong>Altyapıdan A takıma ilk adım.</strong> Real Madrid formasıyla ilk maçlarına çıktı; ancak süre bulamadığı, beklemediği dönemler, "burada kalıcı olamayacağım" hissini büyüttü.</p>
+                    </div>
+                    <div class="journey-story-item">
+                        <span class="journey-story-year">2018 · Borussia Dortmund</span>
+                        <p><strong>Kiralamayla yeniden doğuş.</strong> "Geri plana itilen yedek" değil, özgür oynayan bir bek oldu. Bundesliga'da parlayarak beklentilerin tamamını altüst etti. Kiralık olmak onun için küçülme değil, kapı oldu.</p>
+                    </div>
+                    <div class="journey-story-item">
+                        <span class="journey-story-year">2020 · Inter &#038; PSG</span>
+                        <p><strong>Zirve artık uzak değildi.</strong> Inter'de Serie A şampiyonluğu, ardından PSG'ye rekor bir transferle dünyanın en değerli beklerinden biri haline geldi.</p>
+                    </div>
+                    <div class="journey-story-item">
+                        <span class="journey-story-year">2022 ve sonrası · Dünya Kupası</span>
+                        <p><strong>İşte bugünkü Hakimi.</strong> Fas ile 2022 Dünya Kupası'nda tarih yazdı ve ülkesinin oyuncularına "sıradaki kapı senin" mesajını verdi.</p>
+                    </div>
+                </div>
+                <div class="journey-story-quote">
+                    <i class="fas fa-quote-left"></i>
+                    <p>Hakimi de bir an, "kimse bana güvenmiyor" hissini yaşadı. Ama kiralık, yedek ve göçmen etiketlerini bahane etmedi; kulüp ve lig değiştirdi, çalışmayı bırakmadı. Ret kelimesi onun için son cümle değil, bir sonraki kapının başlangıcı oldu. Bugün sen de aynı çizgidesin; sıradaki kapı senin.</p>
+                </div>
+            </div>
+
+            <!-- Sabır pratiği -->
+            <div class="journey-pride">
+                <h3><i class="fas fa-hourglass-half"></i> Sabır Pratiği</h3>
+                <p class="journey-pride-lead">Sabır bir bekleyiş değil, her gün tekrarlanan küçük bir eylemdir. Bu üç adım yolculuğun provası olsun.</p>
+                <div class="journey-steps-grid">
+                    <div class="journey-step-card">
+                        <span class="journey-step-num">1</span>
+                        <h5>Günü kazan</h5>
+                        <p>Her gün tek hedefin antrenmana gitmek olsun. Büyük çıkışlar, küçük ve sıradan günlerin üst üste gelmesiyle biter.</p>
+                    </div>
+                    <div class="journey-step-card">
+                        <span class="journey-step-num">2</span>
+                        <h5>Bir yıl bekle, iki yıl inşa et</h5>
+                        <p>Birkaç ay içinde sonuç arama; oyuncu gelişimi sezon sezon ölçülür. Kendine en az bir sezonluk sabır sözü ver.</p>
+                    </div>
+                    <div class="journey-step-card">
+                        <span class="journey-step-num">3</span>
+                        <h5>Süreci görünür kıl</h5>
+                        <p>İstatistiklerim bölümündeki Antrenman Günlüğü'ne her tamamladığın antrenmanı işaretle. Serin büyüdükçe sabrın da gözle görünür hale gelir.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scout-note">
+                <i class="fas fa-lightbulb"></i>
+                <p><strong>Bunu bil:</strong> A takıma çıkış çoğu zaman bir atlama değil, bir kapıdır: önünde beklersin ama seni en iyi gören antrenör ya da o kapının açıldığı an belirsizdir. İnanmayanlara cevabın sahada yazılır; yazmaya devam et.</p>
             </div>
         </div>
     </div>
