@@ -1338,16 +1338,39 @@ document.addEventListener('keydown', function(e) {
         if (storyPanel) openStoryPanel();
     }
 
-    function handleAvatarFile(file) {
+    function handleAvatarFile(file, mirror) {
         if (!file || !file.type || file.type.indexOf('image/') !== 0) return;
         const reader = new FileReader();
         reader.onload = function() {
             const dataUrl = reader.result;
+            if (mirror) {
+                mirrorImage(dataUrl, function(mirroredUrl) {
+                    localStorage.setItem(PROFILE_AVATAR_KEY, mirroredUrl);
+                    setProfileAvatar(mirroredUrl);
+                    if (profileEditInfo) profileEditInfo.textContent = '✓ Fotoğraf güncellendi';
+                });
+                return;
+            }
             localStorage.setItem(PROFILE_AVATAR_KEY, dataUrl);
             setProfileAvatar(dataUrl);
             if (profileEditInfo) profileEditInfo.textContent = '✓ Fotoğraf güncellendi';
         };
         reader.readAsDataURL(file);
+    }
+
+    function mirrorImage(src, callback) {
+        const img = new Image();
+        img.onload = function() {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.translate(img.width, 0);
+            ctx.scale(-1, 1);
+            ctx.drawImage(img, 0, 0);
+            callback(canvas.toDataURL('image/jpeg', 0.9));
+        };
+        img.src = src;
     }
 
     function saveProfileName() {
@@ -1404,7 +1427,7 @@ document.addEventListener('keydown', function(e) {
 
     if (profileEditCameraFile) {
         profileEditCameraFile.addEventListener('change', function() {
-            if (this.files && this.files[0]) handleAvatarFile(this.files[0]);
+            if (this.files && this.files[0]) handleAvatarFile(this.files[0], true);
             this.value = '';
         });
     }
